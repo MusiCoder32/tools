@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)http://www.cnblogs.com/tugenhua0707/p/4050072.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="origin">
+<title>Git使用教程 - 龙恩0707 - 博客园</title>
+<meta property="og:description" content="Git使用教程">
+<link type="text/css" rel="stylesheet" href="./Git使用教程 - 龙恩0707 - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./Git使用教程 - 龙恩0707 - 博客园_files/bundle-Minyx2_Lite.css">
+<link type="text/css" rel="stylesheet" href="./Git使用教程 - 龙恩0707 - 博客园_files/161525.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./Git使用教程 - 龙恩0707 - 博客园_files/bundle-Minyx2_Lite-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/tugenhua0707/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/tugenhua0707/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/tugenhua0707/wlwmanifest.xml">
+<script async="" src="./Git使用教程 - 龙恩0707 - 博客园_files/analytics.js.下载"></script><script src="./Git使用教程 - 龙恩0707 - 博客园_files/jquery-2.2.0.min.js.下载"></script>
+<script type="text/javascript">var currentBlogApp = 'tugenhua0707', cb_enable_mathjax=true;var isLogined=false;</script>
+<script type="text/x-mathjax-config;executed=true">
+    MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'blogpost-body', processEscapes: true },
+        TeX: { 
+            equationNumbers: { autoNumber: ['AMS'], useLabelIds: true }, extensions: ['extpfeil.js'] },
+            'HTML-CSS': { linebreaks: { automatic: true } },
+            SVG: { linebreaks: { automatic: true } }
+        });
+    </script><script src="./Git使用教程 - 龙恩0707 - 博客园_files/MathJax.js.下载"></script>
+<script src="./Git使用教程 - 龙恩0707 - 博客园_files/blog-common.js.下载" type="text/javascript"></script>
+<script src="./Git使用教程 - 龙恩0707 - 博客园_files/bundle-Minyx2_Lite.js.下载" language="javascript" type="text/javascript"></script>
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax.MathJax_FullWidth {text-align: center; display: table-cell!important; width: 10000em!important}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block!important; overflow: hidden; width: 1px; height: 60ex; min-height: 0; max-height: none}
+.MathJax .MathJax_EmBox {display: block!important; overflow: hidden; width: 1px; height: 60em; min-height: 0; max-height: none}
+.MathJax_LineBox {display: table!important}
+.MathJax_LineBox span {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Main; src: url('http://mathjax.cnblogs.com/2_7_2/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff?V=2.7.2') format('woff'), url('http://mathjax.cnblogs.com/2_7_2/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf?V=2.7.2') format('opentype')}
+@font-face {font-family: MathJax_Main-bold; src: url('http://mathjax.cnblogs.com/2_7_2/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff?V=2.7.2') format('woff'), url('http://mathjax.cnblogs.com/2_7_2/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf?V=2.7.2') format('opentype')}
+@font-face {font-family: MathJax_Main-italic; src: url('http://mathjax.cnblogs.com/2_7_2/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff?V=2.7.2') format('woff'), url('http://mathjax.cnblogs.com/2_7_2/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf?V=2.7.2') format('opentype')}
+@font-face {font-family: MathJax_Math-italic; src: url('http://mathjax.cnblogs.com/2_7_2/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff?V=2.7.2') format('woff'), url('http://mathjax.cnblogs.com/2_7_2/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf?V=2.7.2') format('opentype')}
+@font-face {font-family: MathJax_Caligraphic; src: url('http://mathjax.cnblogs.com/2_7_2/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff?V=2.7.2') format('woff'), url('http://mathjax.cnblogs.com/2_7_2/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf?V=2.7.2') format('opentype')}
+@font-face {font-family: MathJax_Size1; src: url('http://mathjax.cnblogs.com/2_7_2/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff?V=2.7.2') format('woff'), url('http://mathjax.cnblogs.com/2_7_2/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf?V=2.7.2') format('opentype')}
+@font-face {font-family: MathJax_Size2; src: url('http://mathjax.cnblogs.com/2_7_2/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff?V=2.7.2') format('woff'), url('http://mathjax.cnblogs.com/2_7_2/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf?V=2.7.2') format('opentype')}
+@font-face {font-family: MathJax_Size3; src: url('http://mathjax.cnblogs.com/2_7_2/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff?V=2.7.2') format('woff'), url('http://mathjax.cnblogs.com/2_7_2/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf?V=2.7.2') format('opentype')}
+@font-face {font-family: MathJax_Size4; src: url('http://mathjax.cnblogs.com/2_7_2/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff?V=2.7.2') format('woff'), url('http://mathjax.cnblogs.com/2_7_2/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf?V=2.7.2') format('opentype')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+<body><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+<a name="top"></a>
+
+
+<div id="container">
+    <a class="minyx" href="http://www.cnblogs.com/">代码改变世界</a>
+    <ul id="topMnu">
+        <!-- 统计数据 -->
+        <li>
+            
+                <div id="blog_stats">
+Posts - 279, 
+Articles - 2, 
+Comments - 983
+<!----></div>
+            
+        </li>
+        <!-- 这边可以增加一些链接 -->
+        <!-- 博客园 -->
+        <li><a href="http://www.cnblogs.com/">Cnblogs</a></li>
+        <!-- 管理 -->
+        <li id="topMnu-dashboard">
+            <a id="lnkDashboard" href="https://www.cnblogs.com/tugenhua0707/admin/EditPosts.aspx">Dashboard</a></li>
+        <li>
+            <a id="lnkLogin" href="http://passport.cnblogs.com/login.aspx?ReturnUrl=http://www.cnblogs.com/tugenhua0707/p/4050072.html">Login</a></li>
+    </ul>
+
+    <script type="text/javascript">
+        var m = window.__blog.topMenuRendered;
+        if (m) { m(__$("topMnu")); }
+    </script>
+
+    <div id="header">
+        <ul id="menu">
+            <!-- 首页，当前section加上current类 -->
+            <li id="menu-home" class="current">
+                <a id="lnkHome" href="https://www.cnblogs.com/tugenhua0707/">Home</a></li>
+            <!-- 联系 -->
+            <li id="menu-contact">
+                <a id="lnkContact" href="http://space.cnblogs.com/msg/send/%e9%be%99%e6%81%a90707">Contact</a></li>
+            <!-- 相册 -->
+            <li id="menu-gallary">
+                <a id="lnkGallery" href="https://www.cnblogs.com/tugenhua0707/gallery.html">Gallery</a></li>
+            <!-- Rss订阅 -->
+            <li id="rss">
+                <a id="lnkRss" href="https://www.cnblogs.com/tugenhua0707/rss">RSS</a></li>
+        </ul>
+        <div id="newmsg"></div>
+        <h1>
+            <!-- 主标题 -->
+            <a id="lnkBlogTitle" href="https://www.cnblogs.com/tugenhua0707/">龙恩0707</a>
+            <!-- 子标题 -->
+            <small>
+                ..........</small>
+        </h1>
+    </div>
+
+    <script type="text/javascript">
+        var m = window.__blog.headerRendered;
+        if (m) { m(__$("header")); }
+    </script>
+
+    <div id="wrapper">
+        <div id="content">
+            <script type="text/javascript">
+                var m = window.__blog.preRenderPosts;
+                if (m) { m(); }
+            </script>
+            
+<div id="post_detail">
+<div class="post" id="post">
+    <a name="top"></a>
+    <h2><a id="cb_post_title_url" href="https://www.cnblogs.com/tugenhua0707/p/4050072.html">Git使用教程</a></h2>
+    <small>2014-10-25 14:29 by 龙恩0707, <span id="post_view_count">53308</span> 阅读, <span id="post_comment_count">98</span> 评论, <a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#" onclick="AddToWz(4050072);return false;">收藏</a>,  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=4050072" rel="nofollow">编辑</a></small>
+    <div class="entry">
+        <div id="cnblogs_post_body" class="blogpost-body"><p style="background: #999; color: #fff; font-size: 24px; height: 40px; line-height: 40px; padding-left: 12px; font-weight: bold;">Git使用教程</p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;<strong>一：Git是什么？</strong></span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; &nbsp; &nbsp;Git是目前世界上最先进的分布式版本控制系统。</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>二：SVN与Git的最主要的区别？</strong></span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; &nbsp; SVN是集中式版本控制系统，版本库是集中放在中央服务器的，而干活的时候，用的都是自己的电脑，所以首先要从中央服务器哪里得到最新的版本，然后干活，干完后，需要把自己做完的活推送到中央服务器。集中式版本控制系统是必须联网才能工作，如果在局域网还可以，带宽够大，速度够快，如果在互联网下，如果网速慢的话，就纳闷了。</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; &nbsp; Git是分布式版本控制系统，那么它就没有中央服务器的，每个人的电脑就是一个完整的版本库，这样，工作的时候就不需要联网了，因为版本都是在自己的电脑上。既然每个人的电脑都有一个完整的版本库，那多个人如何协作呢？比如说自己在电脑上改了文件A，其他人也在电脑上改了文件A，这时，你们两之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>三：在windows上如何安装Git？</strong></span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; &nbsp; msysgit是 windows版的Git,如下：</span></p>
+<p align="left">&nbsp; &nbsp; &nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251338547302114.jpg" alt=""></p>
+<p align="left">&nbsp;<span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">需要从网上下载一个，然后进行默认安装即可。安装完成后，在开始菜单里面找到 "Git --&gt; Git Bash",如下：</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;&nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251339315902785.jpg" alt=""></span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">会弹出一个类似的命令窗口的东西，就说明Git安装成功。如下：</span></p>
+<p align="left">&nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251340039335704.jpg" alt=""></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">安装完成后，还需要最后一步设置，在命令行输入如下：</span></p>
+<p align="left">&nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251341575433364.jpg" alt=""></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; 因为Git是分布式版本控制系统，所以需要填写用户名和邮箱作为一个标识。</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><strong>&nbsp; &nbsp;注意：</strong>git config&nbsp; --global 参数，有了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然你也可以对某个仓库指定的不同的用户名和邮箱。</span></p>
+<p align="left"><strong><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">四：如何操作？</span></strong></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; &nbsp; &nbsp;一：创建版本库。</span></p>
+<p class="ListParagraph" align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; &nbsp; &nbsp;什么是版本库？版本库又名仓库，英文名repository,你可以简单的理解一个目录，这个目录里面的所有文件都可以被Git管理起来，每个文件的修改，删除，Git都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻还可以将文件”还原”。</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; &nbsp; 所以创建一个版本库也非常简单，如下我是D盘 –&gt; www下 目录下新建一个testgit版本库。</span></p>
+<p align="left">&nbsp; &nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251342369965577.png" alt=""></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">pwd 命令是用于显示当前的目录。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; &nbsp; 1. 通过命令 git init 把这个目录变成git可以管理的仓库，如下：</span></p>
+<p>&nbsp; &nbsp; &nbsp;&nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251343102774109.png" alt=""></p>
+<p class="ListParagraph" align="left">&nbsp; &nbsp; &nbsp;<span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">这时候你当前testgit目录下会多了一个.git的目录，这个目录是Git来跟踪管理版本的，没事千万不要手动乱改这个目录里面的文件，否则，会把git仓库给破坏了。如下：</span></p>
+<p class="ListParagraph" align="left">&nbsp; &nbsp;&nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251343384492003.png" alt=""></p>
+<p>&nbsp; &nbsp; &nbsp; <span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">2. 把文件添加到版本库中。</span></p>
+<p class="ListParagraph" align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 首先要明确下，所有的版本控制系统，只能跟踪文本文件的改动，比如txt文件，网页，所有程序的代码等，Git也不列外，版本控制系统可以告诉你每次的改动，但是图片，视频这些二进制文件，虽能也能由版本控制系统管理，但没法跟踪文件的变化，只能把二进制文件每次改动串起来，也就是知道图片从1kb变成2kb，但是到底改了啥，版本控制也不知道。</span></p>
+<p align="left"><strong>&nbsp; &nbsp; <span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">下面先看下</span></strong><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>demo</strong><strong>如下演示：</strong></span></p>
+<p class="ListParagraph" align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; &nbsp;我在版本库testgit目录下新建一个记事本文件 readme.txt 内容如下：11111111</span></p>
+<p class="ListParagraph" align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; &nbsp;第一步：使用命令 git add readme.txt添加到暂存区里面去。如下：</span></p>
+<p class="ListParagraph" align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp;&nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251344226375669.png" alt=""></span></p>
+<p class="ListParagraph" align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp;如果和上面一样，没有任何提示，说明已经添加成功了。</span></p>
+<p class="ListParagraph" align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp;第二步：用命令 git commit告诉Git，把文件提交到仓库。</span></p>
+<p class="ListParagraph" align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251344516834662.png" alt=""></span></p>
+<p class="ListParagraph" align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;&nbsp;现在我们已经提交了一个readme.txt文件了，我们下面可以通过命令git status来查看是否还有文件未提交，如下：</span></p>
+<p class="ListParagraph" align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;&nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251345111059561.png" alt=""></span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;说明没有任何文件未提交，但是我现在继续来改下readme.txt内容，比如我在下面添加一行2222222222内容，继续使用git status来查看下结果，如下：</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251345416525297.png" alt=""></span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">上面的命令告诉我们 readme.txt文件已被修改，但是未被提交的修改。</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">接下来我想看下readme.txt文件到底改了什么内容，如何查看呢？可以使用如下命令：</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">git diff readme.txt 如下：</span></p>
+<p align="left">&nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251346028718381.png" alt=""></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">如上可以看到，readme.txt文件内容从一行11111111改成 二行 添加了一行22222222内容。</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">知道了对readme.txt文件做了什么修改后，我们可以放心的提交到仓库了，提交修改和提交文件是一样的2步(第一步是git add&nbsp; 第二步是：git commit)。</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">如下：</span></p>
+<p align="left">&nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251346268403791.png" alt=""></p>
+<p style="background: #999; color: #fff; font-size: 24px; height: 40px; line-height: 40px; padding-left: 12px; font-weight: bold;">二：版本回退：</p>
+<p align="left">&nbsp; &nbsp; &nbsp;<span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如上，我们已经学会了修改文件，现在我继续对readme.txt文件进行修改，再增加一行</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">内容为33333333333333.继续执行命令如下：</span></p>
+<p align="left">&nbsp; &nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251347200583366.png" alt=""></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">现在我已经对readme.txt文件做了三次修改了，那么我现在想查看下历史记录，如何查呢？我们现在可以使用命令 git log 演示如下所示：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251347438876519.png" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; &nbsp; git log命令显示从最近到最远的显示日志，我们可以看到最近三次提交，最近的一次是,增加内容为333333.上一次是添加内容222222，第一次默认是 111111.如果嫌上面显示的信息太多的话，我们可以使用命令 git log –pretty=oneline 演示如下：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251348076992146.png" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; &nbsp; 现在我想使用版本回退操作，我想把当前的版本回退到上一个版本，要使用什么命令呢？可以使用如下2种命令，第一种是：git reset&nbsp; --hard HEAD^ 那么如果要回退到上上个版本只需把HEAD^ 改成 HEAD^^ 以此类推。那如果要回退到前100个版本的话，使用上面的方法肯定不方便，我们可以使用下面的简便命令操作：git reset&nbsp; --hard HEAD~100 即可。未回退之前的readme.txt内容如下：</span></p>
+<p align="left">&nbsp;&nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251348307465171.png" alt=""></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如果想回退到上一个版本的命令如下操作：</span></p>
+<p align="left"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251348496688157.png" alt=""></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">再来查看下 readme.txt内容如下：通过命令cat readme.txt查看</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251349052154773.png" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">可以看到，内容已经回退到上一个版本了。我们可以继续使用git log 来查看下历史记录信息，如下：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251349205437091.png" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">我们看到 增加333333 内容我们没有看到了，但是现在我想回退到最新的版本，如：有333333的内容要如何恢复呢？我们可以通过版本号回退，使用命令方法如下：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">git reset&nbsp; --hard 版本号 ，但是现在的问题假如我已经关掉过一次命令行或者333内容的版本号我并不知道呢？要如何知道增加3333内容的版本号呢？可以通过如下命令即可获取到版本号：git reflog&nbsp; 演示如下：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251349474491472.png" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">通过上面的显示我们可以知道，增加内容3333的版本号是 6fcfc89.我们现在可以命令</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">git reset&nbsp; --hard 6fcfc89来恢复了。演示如下：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251350096836911.png" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">可以看到 目前已经是最新的版本了。</span></p>
+<p style="background: #999; color: #fff; font-size: 24px; height: 40px; line-height: 40px; padding-left: 12px; font-weight: bold;">三：理解工作区与暂存区的区别？</p>
+<p align="left">&nbsp; &nbsp; &nbsp;<span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>工作区：</strong>就是你在电脑上看到的目录，比如目录下testgit里的文件(.git隐藏目录版本库除外)。或者以后需要再新建的目录文件等等都属于工作区范畴。</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>&nbsp; &nbsp; &nbsp; 版本库</strong><strong>(Repository)</strong><strong>：</strong>工作区有一个隐藏目录.git,这个不属于工作区，这是版本库。其中版本库里面存了很多东西，其中最重要的就是stage(暂存区)，还有Git为我们自动创建了第一个分支master,以及指向master的一个指针HEAD。</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">我们前面说过使用Git提交文件到版本库有两步：</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; 第一步：是使用 git add 把文件添加进去，实际上就是把文件添加到暂存区。</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; 第二步：使用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支上。</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">我们继续使用demo来演示下：</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">我们在readme.txt再添加一行内容为4444444，接着在目录下新建一个文件为test.txt 内容为test，我们先用命令 git status来查看下状态，如下：</span></p>
+<p align="left"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251350425584501.png" alt=""></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">现在我们先使用git add 命令把2个文件都添加到暂存区中，再使用git status来查看下状态，如下：</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251351180907145.png" alt=""></span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">接着我们可以使用git commit一次性提交到分支上，如下：</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251351473248082.png" alt=""></span></p>
+<p style="background: #999; color: #fff; font-size: 24px; height: 40px; line-height: 40px; padding-left: 12px; font-weight: bold;">四：Git撤销修改和删除文件操作。</p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>一：撤销修改：</strong></span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;&nbsp;&nbsp; 比如我现在在readme.txt文件里面增加一行 内容为555555555555，我们先通过命令查看如下：</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251352126216220.png" alt=""></span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">在我未提交之前，我发现添加5555555555555内容有误，所以我得马上恢复以前的版本，现在我可以有如下几种方法可以做修改：</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">第一：如果我知道要删掉那些内容的话，直接手动更改去掉那些需要的文件，然后add添加到暂存区，最后commit掉。</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">第二：我可以按以前的方法直接恢复到上一个版本。使用 git reset&nbsp; --hard HEAD^</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">但是现在我不想使用上面的2种方法，我想直接想使用撤销命令该如何操作呢？首先在做撤销之前，我们可以先用 git status 查看下当前的状态。如下所示：</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251352368714545.png" alt=""></span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">可以发现，Git会告诉你，git checkout&nbsp; -- file 可以丢弃工作区的修改，如下命令：</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">git checkout&nbsp; --&nbsp; readme.txt,如下所示：</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251352562464460.png" alt=""></span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">命令 git checkout --readme.txt 意思就是，把readme.txt文件在工作区做的修改全部撤销，这里有2种情况，如下：</span></p>
+<ol>
+<li><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">readme.txt自动修改后，还没有放到暂存区，使用 撤销修改就回到和版本库一模一样的状态。</span></li>
+<li><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">另外一种是readme.txt已经放入暂存区了，接着又作了修改，撤销修改就回到添加暂存区后的状态。</span></li>
+</ol>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">对于第二种情况，我想我们继续做demo来看下，假如现在我对readme.txt添加一行 内容为6666666666666，我git add 增加到暂存区后，接着添加内容7777777，我想通过撤销命令让其回到暂存区后的状态。如下所示：</span></p>
+<p align="left">&nbsp;&nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251353209657240.png" alt=""></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>注意：</strong>命令git checkout -- readme.txt 中的 -- 很重要，如果没有 -- 的话，那么命令变成创建分支了。</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>二：删除文件。</strong></span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; &nbsp;假如我现在版本库testgit目录添加一个文件b.txt,然后提交。如下：</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;&nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251353539187274.png" alt=""></span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如上：一般情况下，可以直接在文件目录中把文件删了，或者使用如上rm命令：rm b.txt ，如果我想彻底从版本库中删掉了此文件的话，可以再执行commit命令 提交掉，现在目录是这样的，</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251354169022085.png" alt=""></span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">只要没有commit之前，如果我想在版本库中恢复此文件如何操作呢？</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">可以使用如下命令 git checkout&nbsp; -- b.txt，如下所示：</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251354414803609.png" alt=""></span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">再来看看我们testgit目录，添加了3个文件了。如下所示：</span></p>
+<p align="left"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251355004651109.png" alt=""></p>
+<p style="background: #999; color: #fff; font-size: 24px; height: 40px; line-height: 40px; padding-left: 12px; font-weight: bold;">五：远程仓库。</p>
+<p align="left">&nbsp; &nbsp; &nbsp;<span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">在了解之前，先注册github账号，由于你的本地Git仓库和github仓库之间的传输是通过SSH加密的，所以需要一点设置：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; &nbsp; &nbsp;第一步：创建SSH Key。在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有id_rsa和id_rsa.pub这两个文件，如果有的话，直接跳过此如下命令，如果没有的话，打开命令行，输入如下命令：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">ssh-keygen&nbsp; -t rsa –C “youremail@example.com”, 由于我本地此前运行过一次，所以本地有，如下所示：</span></p>
+<p align="left">&nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251355342303027.png" alt=""></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人。</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">第二步：登录github,打开” settings”中的SSH Keys页面，然后点击“Add SSH Key”,填上任意title，在Key文本框里黏贴id_rsa.pub文件的内容。</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251356274651130.png" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">点击 Add Key，你就应该可以看到已经添加的key。</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251356499185972.png" alt=""></span></p>
+<ol>
+<li><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">如何添加远程库？</span></li>
+</ol>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;现在的情景是：我们已经在本地创建了一个Git仓库后，又想在github创建一个Git仓库，并且希望这两个仓库进行远程同步，这样github的仓库可以作为备份，又可以其他人通过该仓库来协作。</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp; 首先，登录github上，然后在右上角找到“create a new repo”创建一个新的仓库。如下：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251357316059068.png" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">在Repository name填入<code>testgit</code>，其他保持默认设置，点击“Create repository”按钮，就成功地创建了一个新的Git仓库：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251357548716794.png" alt=""></span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; &nbsp; 目前，在GitHub上的这个<code>testgit</code>仓库还是空的，GitHub告诉我们，可以从这个仓库克隆出新的仓库，也可以把一个已有的本地仓库与之关联，然后，把本地仓库的内容推送到GitHub仓库。</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">现在，我们根据GitHub的提示，在本地的<code>testgit</code>仓库下运行命令：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">git remote add origin https://github.com/tugenhua0707/testgit.git</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">所有的如下：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251358439027115.png" alt=""></span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">把本地库的内容推送到远程，使用 git push命令，实际上是把当前分支master推送到远程。</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">由于远程库是空的，我们第一次推送master分支时，加上了 –u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。推送成功后，可以立刻在github页面中看到远程库的内容已经和本地一模一样了，上面的要输入github的用户名和密码如下所示：</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251359074968040.png" alt=""></span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">从现在起，只要本地作了提交，就可以通过如下命令：</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">git push origin master</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">把本地master分支的最新修改推送到github上了，现在你就拥有了真正的分布式版本库了。</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">2. 如何从远程库克隆？</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; 上面我们了解了先有本地库，后有远程库时候，如何关联远程库。</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; 现在我们想，假如远程库有新的内容了，我想克隆到本地来 如何克隆呢？</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; 首先，登录github，创建一个新的仓库，名字叫testgit2.如下：</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251359368403775.png" alt=""></span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">如下，我们看到：</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251359573401245.png" alt=""></span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">现在，远程库已经准备好了，下一步是使用命令git clone克隆一个本地库了。如下所示：</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251400190749472.png" alt=""></span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">接着在我本地目录下 生成testgit2目录了，如下所示：</span></p>
+<p><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251400431217326.png" alt=""></p>
+<p style="background: #999; color: #fff; font-size: 24px; height: 40px; line-height: 40px; padding-left: 12px; font-weight: bold;">六：创建与合并分支。</p>
+<p>&nbsp;&nbsp;&nbsp; <span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">在 &nbsp;版本回填退里，你已经知道，每次提交，Git都把它们串成一条时间线，这条时间线就是一个分支。截止到目前，只有一条时间线，在Git里，这个分支叫主分支，即master分支。HEAD严格来说不是指向提交，而是指向master，master才是指向提交的，所以，HEAD指向的就是当前分支。</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">首先，我们来创建dev分支，然后切换到dev分支上。如下操作：</span></p>
+<p>&nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251401222624868.png" alt=""></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">git checkout 命令加上 –b参数表示创建并切换，相当于如下2条命令</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">git branch dev</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">git checkout dev</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">git branch查看分支，会列出所有的分支，当前分支前面会添加一个星号。然后我们在dev分支上继续做demo，比如我们现在在readme.txt再增加一行 7777777777777</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">首先我们先来查看下readme.txt内容，接着添加内容77777777，如下：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251401471056078.png" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">现在dev分支工作已完成，现在我们切换到主分支master上，继续查看readme.txt内容如下：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251402052152479.png" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">现在我们可以把dev分支上的内容合并到分支master上了，可以在master分支上，使用如下命令 git merge dev 如下所示：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251402275904876.png" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">git merge命令用于合并指定分支到当前分支上，合并后，再查看readme.txt内容，可以看到，和dev分支最新提交的是完全一样的。</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">注意到上面的<em>Fast-forward</em>信息，Git告诉我们，这次合并是“快进模式”，也就是直接把master指向dev的当前提交，所以合并速度非常快。</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">合并完成后，我们可以接着删除dev分支了，操作如下：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251402521216116.png" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">总结创建与合并分支命令如下：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp; 查看分支：git branch</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp; 创建分支：git branch name</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp; 切换分支：git checkout name</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">创建+切换分支：git checkout –b name</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">合并某分支到当前分支：git merge name</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">删除分支：git branch –d name</span></p>
+<ol>
+<li><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">如何解决冲突？</span></li>
+</ol>
+<p class="ListParagraph" align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">下面我们还是一步一步来，先新建一个新分支，比如名字叫fenzhi1，在readme.txt添加一行内容8888888，然后提交，如下所示：</span></p>
+<p class="ListParagraph" align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251403184188082.png" alt=""></span></p>
+<p class="ListParagraph" align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">同样，我们现在切换到master分支上来，也在最后一行添加内容，内容为99999999，如下所示：</span></p>
+<p class="ListParagraph" align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251403416053365.png" alt=""></span></p>
+<p class="ListParagraph" align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">现在我们需要在master分支上来合并fenzhi1，如下操作：</span></p>
+<p class="ListParagraph" align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251404228409533.png" alt=""></span></p>
+<p class="ListParagraph" align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;" lang="EN-US">Git用<span lang="EN-US">&lt;&lt;&lt;&lt;&lt;&lt;&lt;，<span lang="EN-US">=======，<span lang="EN-US">&gt;&gt;&gt;&gt;&gt;&gt;&gt;标记出不同分支的内容，其中<span lang="EN-US">&lt;&lt;&lt;HEAD是指主分支修改的内容，<span lang="EN-US">&gt;&gt;&gt;&gt;&gt;fenzhi1 是指<span lang="EN-US">fenzhi1上修改的内容，我们可以修改下如下后保存：</span></span></span></span></span></span></span></p>
+<p class="ListParagraph" align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;" lang="EN-US"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251404454024875.png" alt=""></span></p>
+<p class="ListParagraph" align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">如果我想查看分支合并的情况的话，需要使用命令 git log.命令行演示如下：</span></p>
+<p class="ListParagraph" align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251405055906673.png" alt=""></span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; &nbsp; 3.分支管理策略。</span></p>
+<p class="ListParagraph" align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; &nbsp; &nbsp; 通常合并分支时，git一般使用”Fast forward”模式，在这种模式下，删除分支后，会丢掉分支信息，现在我们来使用带参数 –no-ff来禁用”Fast forward”模式。首先我们来做demo演示下：</span></p>
+<ol>
+<li><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">创建一个dev分支。</span></li>
+<li><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">修改readme.txt内容。</span></li>
+<li><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">添加到暂存区。</span></li>
+<li><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">切换回主分支(master)。</span></li>
+<li><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">合并dev分支，使用命令 git merge –no-ff&nbsp; -m “注释” dev</span></li>
+<li><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">查看历史记录</span></li>
+</ol>
+<p class="ListParagraph" align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">截图如下：</span></p>
+<p class="ListParagraph" align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251405434185118.png" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><strong>分支策略：</strong>首先master主分支应该是非常稳定的，也就是用来发布新版本，一般情况下不允许在上面干活，干活一般情况下在新建的dev分支上干活，干完后，比如上要发布，或者说dev分支代码稳定后可以合并到主分支master上来。</span></p>
+<p style="background: #999; color: #fff; font-size: 24px; height: 40px; line-height: 40px; padding-left: 12px; font-weight: bold;">七：bug分支：</p>
+<p align="left">&nbsp;&nbsp;&nbsp;&nbsp; <span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">在开发中，会经常碰到bug问题，那么有了bug就需要修复，在Git中，分支是很强大的，每个bug都可以通过一个临时分支来修复，修复完成后，合并分支，然后将临时的分支删除掉。</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">比如我在开发中接到一个404 bug时候，我们可以创建一个404分支来修复它，但是，当前的dev分支上的工作还没有提交。比如如下：</span></p>
+<p align="left">&nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251407366993876.png" alt=""></p>
+<p align="left">&nbsp; &nbsp;<span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">并不是我不想提交，而是工作进行到一半时候，我们还无法提交，比如我这个分支bug要2天完成，但是我issue-404 bug需要5个小时内完成。怎么办呢？还好，Git还提供了一个stash功能，可以把当前工作现场 ”隐藏起来”，等以后恢复现场后继续工作。如下：</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;&nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251408084493910.png" alt=""></span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp;所以现在我可以通过创建issue-404分支来修复bug了。</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">首先我们要确定在那个分支上修复bug，比如我现在是在主分支master上来修复的，现在我要在master分支上创建一个临时分支，演示如下：</span></p>
+<p align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251408333083648.png" alt=""></span></p>
+<p class="ListParagraph" align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">修复完成后，切换到master分支上，并完成合并，最后删除issue-404分支。演示如下：</span></p>
+<p class="ListParagraph" align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251409016683485.png" alt=""></span></p>
+<p class="ListParagraph" align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">现在，我们回到dev分支上干活了。</span></p>
+<p class="ListParagraph" align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251409307156776.png" alt=""></span></p>
+<p class="ListParagraph" align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">工作区是干净的，那么我们工作现场去哪里呢？我们可以使用命令 git stash list来查看下。如下：</span></p>
+<p class="ListParagraph" align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251409546688359.png" alt=""></span></p>
+<p class="ListParagraph" align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">工作现场还在，Git把stash内容存在某个地方了，但是需要恢复一下，可以使用如下2个方法：</span></p>
+<ol>
+<li><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">git stash apply恢复，恢复后，stash内容并不删除，你需要使用命令git stash drop来删除。</span></li>
+<li><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">另一种方式是使用git stash pop,恢复的同时把stash内容也删除了。</span></li>
+</ol>
+<p class="ListParagraph" align="left"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 演示如下</span></p>
+<p class="ListParagraph" align="left"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251410142934731.png" alt=""></p>
+<p style="background: #999; color: #fff; font-size: 24px; height: 40px; line-height: 40px; padding-left: 12px; font-weight: bold;">八：多人协作。</p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">当你从远程库克隆时候，实际上Git自动把本地的master分支和远程的master分支对应起来了，并且远程库的默认名称是origin。</span></p>
+<ol>
+<li><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">要查看远程库的信息 使用 git remote</span></li>
+<li><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">要查看远程库的详细信息 使用 git remote –v</span></li>
+</ol>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">如下演示：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251410415747295.png" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><strong>一：推送分支：</strong></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 推送分支就是把该分支上所有本地提交到远程库中，推送时，要指定本地分支，这样，Git就会把该分支推送到远程库对应的远程分支上：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 使用命令 git push origin master</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">比如我现在的github上的readme.txt代码如下：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251411007466738.png" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">本地的readme.txt代码如下：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251411277462090.png" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">现在我想把本地更新的readme.txt代码推送到远程库中，使用命令如下：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251411458711720.png" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">我们可以看到如上，推送成功，我们可以继续来截图github上的readme.txt内容 如下：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251412049657718.png" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">可以看到 推送成功了，如果我们现在要推送到其他分支，比如dev分支上，我们还是那个命令 git push origin dev</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">那么一般情况下，那些分支要推送呢？</span></p>
+<ol>
+<li><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">master分支是主分支，因此要时刻与远程同步。</span></li>
+<li><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">一些修复bug分支不需要推送到远程去，可以先合并到主分支上，然后把主分支master推送到远程去。</span></li>
+</ol>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><strong>二：抓取分支：</strong></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">多人协作时，大家都会往master分支上推送各自的修改。现在我们可以模拟另外一个同事，可以在另一台电脑上（注意要把SSH key添加到github上）或者同一台电脑上另外一个目录克隆，新建一个目录名字叫testgit2</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">但是我首先要把dev分支也要推送到远程去，如下</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251413370902607.jpg" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">接着进入testgit2目录，进行克隆远程的库到本地来，如下：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;<img src="./Git使用教程 - 龙恩0707 - 博客园_files/251412375741324.png" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">现在目录下生成有如下所示：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251414098406468.png" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">现在我们的小伙伴要在dev分支上做开发，就必须把远程的origin的dev分支到本地来，于是可以使用命令创建本地dev分支：git checkout&nbsp; –b dev origin/dev</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">现在小伙伴们就可以在dev分支上做开发了，开发完成后把dev分支推送到远程库时。</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">如下：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251416265903424.png" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">小伙伴们已经向origin/dev分支上推送了提交，而我在我的目录文件下也对同样的文件同个地方作了修改，也试图推送到远程库时，如下：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251416538082475.png" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">由上面可知：推送失败，因为我的小伙伴最新提交的和我试图推送的有冲突，解决的办法也很简单，上面已经提示我们，先用git pull把最新的提交从origin/dev抓下来，然后在本地合并，解决冲突，再推送。</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251417172467915.png" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><em>git pull</em>也失败了，原因是没有指定本地dev分支与远程origin/dev分支的链接，根据提示，设置dev和origin/dev的链接：如下：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251417344188703.png" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">这回<em>git pull</em>成功，但是合并有冲突，需要手动解决，解决的方法和分支管理中的 解决冲突完全一样。解决后，提交，再push：</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">我们可以先来看看readme.txt内容了。</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251418192937227.png" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">现在手动已经解决完了，我接在需要再提交，再push到远程库里面去。如下所示：</span><br><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/251418378872312.png" alt=""></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">因此：多人协作工作模式一般是这样的：</span></p>
+<ol>
+<li><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">首先，可以试图用git push origin branch-name推送自己的修改.</span></li>
+<li><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">如果推送失败，则因为远程分支比你的本地更新早，需要先用git pull试图合并。</span></li>
+<li><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">如果合并有冲突，则需要解决冲突，并在本地提交。再用git push origin branch-name推送。</span></li>
+
+
+
+
+
+
+
+
+
+</ol>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><strong>Git</strong><strong>基本常用命令如下：</strong></span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp; mkdir：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; XX (创建一个空目录 XX指目录名)</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp; pwd：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 显示当前目录的路径。</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp; git init&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 把当前的目录变成可以管理的git仓库，生成隐藏.git文件。</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp; git add XX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 把xx文件添加到暂存区去。</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp; git commit –m “XX”&nbsp; 提交文件 –m 后面的是注释。</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp; git status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 查看仓库状态</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp; git diff&nbsp; XX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 查看XX文件修改了那些内容</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp; git log&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 查看历史记录</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp; git reset&nbsp; --hard HEAD^ 或者 git reset&nbsp; --hard HEAD~ 回退到上一个版本</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (如果想回退到100个版本，使用git reset –hard HEAD~100 )</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp; cat XX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 查看XX文件内容</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp; git reflog&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 查看历史记录的版本号id</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp; git checkout -- XX&nbsp; 把XX文件在工作区的修改全部撤销。</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp; git rm XX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 删除XX文件</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp; git remote add origin <a href="https://github.com/tugenhua0707/testgit">https://github.com/tugenhua0707/testgit</a> 关联一个远程库</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp; git push –u(第一次要用-u 以后不需要) origin master 把当前master分支推送到远程库</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; &nbsp;git clone <a href="https://github.com/tugenhua0707/testgit">https://github.com/tugenhua0707/testgit</a>&nbsp; 从远程库中克隆</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; &nbsp;git checkout –b dev&nbsp; 创建dev分支 并切换到dev分支上</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; &nbsp;git branch&nbsp; 查看当前所有的分支</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; &nbsp;git checkout master 切换回master分支</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; &nbsp;git merge dev&nbsp; &nbsp;&nbsp;在当前的分支上合并dev分支</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; &nbsp;git branch –d dev 删除dev分支</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; &nbsp;git branch name&nbsp; 创建分支</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; &nbsp;git stash 把当前的工作隐藏起来 等以后恢复现场后继续工作</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; &nbsp;git stash list 查看所有被隐藏的文件列表</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; &nbsp;git stash apply 恢复被隐藏的文件，但是内容不删除</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; &nbsp;git stash drop 删除文件</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; &nbsp;git stash pop 恢复文件的同时 也删除文件</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; &nbsp;git remote 查看远程库的信息</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; &nbsp;git remote –v 查看远程库的详细信息</span></p>
+<p align="left"><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp; &nbsp;git push origin master&nbsp; Git会把master分支推送到远程库对应的远程分支上</span></p></div><div id="MySignature"></div>
+        <div class="clear"></div>
+        <div id="blog_post_info_block">
+        <div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(4050072,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;0bb325ba-be0e-e311-8d02-90b11c0b17d6&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/tugenhua0707/" target="_blank"><img src="./Git使用教程 - 龙恩0707 - 博客园_files/20160306101106.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/tugenhua0707/">龙恩0707</a><br>
+            <a href="http://home.cnblogs.com/u/tugenhua0707/followees">关注 - 22</a><br>
+            <a href="http://home.cnblogs.com/u/tugenhua0707/followers">粉丝 - 1048</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;0bb325ba-be0e-e311-8d02-90b11c0b17d6&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(4050072,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">154</span>
+    </div>
+    <div class="buryit" onclick="votePost(4050072,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+        <div class="clear"></div>
+        <div id="post_next_prev"><a href="https://www.cnblogs.com/tugenhua0707/p/4023186.html" class="p_n_p_prefix">« </a> 上一篇：<a href="https://www.cnblogs.com/tugenhua0707/p/4023186.html" title="发布于2014-10-13 21:55">Ajax基本知识</a><br><a href="https://www.cnblogs.com/tugenhua0707/p/4067220.html" class="p_n_p_prefix">» </a> 下一篇：<a href="https://www.cnblogs.com/tugenhua0707/p/4067220.html" title="发布于2014-11-01 15:28">requireJS(版本是2.1.15)学习教程(一)</a><br></div>
+    </div>
+</div>
+    <ul class="postmetadata">
+        <li class="icon_cat" id="BlogPostCategory">分类: <a href="https://www.cnblogs.com/tugenhua0707/category/544573.html" target="_blank">前端项目工具</a></li>
+        <li class="icon_bullet" id="EntryTag">标签: <a href="https://www.cnblogs.com/tugenhua0707/tag/Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">Git使用教程</a></li>
+    </ul>
+</div>
+<script type="text/javascript">var allowComments=true,cb_blogId=161525,cb_entryId=4050072,cb_blogApp=currentBlogApp,cb_blogUserGuid='0bb325ba-be0e-e311-8d02-90b11c0b17d6',cb_entryCreatedDate='2014/10/25 14:29:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+<script type="text/javascript">
+    var m = window.__blog.postRendered;
+    if (m) { m(__$("post")); }
+</script>
+<script type="text/javascript">
+    var m = window.__blog.postRenderPosts;
+    if (m) { m(); }
+</script>
+</div><a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"><div class="pager"><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#!comments" onclick="commentManager.renderComments(1,50);return false;">&lt; Prev</a><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#!comments" onclick="commentManager.renderComments(1,50);return false;">1</a><span class="current">2</span></div></div>
+<a class="addcomment" href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#comment_tip">Add your comment</a>
+<h3 id="comments"></h3>
+<div class="feedbackNoItems"></div>
+<script language="javascript" type="text/javascript">
+    var m = window.__blog.preRenderCommentList;
+    if (m) { m(); }
+</script>
+
+<ol class="commentlist" id="commentList">	
+
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3084156" class="layer">#51楼</a><a name="3084156" id="comment_anchor_3084156"></a></cite> <a id="a_comment_author_3084156" href="https://www.cnblogs.com/haitao-fan/" target="_blank">尼玛范爷</a> <a href="http://msg.cnblogs.com/send/%E5%B0%BC%E7%8E%9B%E8%8C%83%E7%88%B7" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2014-12-11 23:27</span></small>
+			</h5>
+			<div id="comment_body_3084156" class="blog_comment_body">受教了，多谢</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3084156,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3084156,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3084156_avatar" style="display:none;">http://pic.cnblogs.com/face/395638/20140818132358.png</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3088023" class="layer">#52楼</a><a name="3088023" id="comment_anchor_3088023"></a></cite> <a id="a_comment_author_3088023" href="https://www.cnblogs.com/leeten/" target="_blank">李腾</a> <a href="http://msg.cnblogs.com/send/%E6%9D%8E%E8%85%BE" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2014-12-17 13:39</span></small>
+			</h5>
+			<div id="comment_body_3088023" class="blog_comment_body">写的不错，学习了，上面有的说是抄袭liaoxuefeng的我想liaoxuefeng不也是从别处学习来的吗，我觉得对博友们有用就是好文。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3088023,&#39;Digg&#39;,this)">支持(3)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3088023,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3088023_avatar" style="display:none;">http://pic.cnblogs.com/face/578349/20140104231552.png</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3099659" class="layer">#53楼</a><a name="3099659" id="comment_anchor_3099659"></a></cite> <a id="a_comment_author_3099659" href="https://www.cnblogs.com/elegance/" target="_blank">YouYaInsist</a> <a href="http://msg.cnblogs.com/send/YouYaInsist" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-01-04 16:10</span></small>
+			</h5>
+			<div id="comment_body_3099659" class="blog_comment_body">这个文章写的不错。真心不错！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3099659,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3099659,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3099659_avatar" style="display:none;">http://pic.cnblogs.com/face/703087/20150213160741.png</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3145611" class="layer">#54楼</a><a name="3145611" id="comment_anchor_3145611"></a></cite> <a id="a_comment_author_3145611" href="http://home.cnblogs.com/u/672259/" target="_blank">凌波微步086</a> <a href="http://msg.cnblogs.com/send/%E5%87%8C%E6%B3%A2%E5%BE%AE%E6%AD%A5086" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-03-20 22:41</span></small>
+			</h5>
+			<div id="comment_body_3145611" class="blog_comment_body">楼主写的真详细，非常感谢您的分享！！！！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3145611,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3145611,&#39;Bury&#39;,this)">反对(0)</a></div>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3166779" class="layer">#55楼</a><a name="3166779" id="comment_anchor_3166779"></a></cite> <a id="a_comment_author_3166779" href="https://www.cnblogs.com/xxonehjh/" target="_blank">洪</a> <a href="http://msg.cnblogs.com/send/%E6%B4%AA" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-04-21 09:37</span></small>
+			</h5>
+			<div id="comment_body_3166779" class="blog_comment_body">很不错，简单易懂</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3166779,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3166779,&#39;Bury&#39;,this)">反对(0)</a></div>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3174912" class="layer">#56楼</a><a name="3174912" id="comment_anchor_3174912"></a></cite> <a id="a_comment_author_3174912" href="https://www.cnblogs.com/warmday/" target="_blank">最暖一天</a> <a href="http://msg.cnblogs.com/send/%E6%9C%80%E6%9A%96%E4%B8%80%E5%A4%A9" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-05-03 11:52</span></small>
+			</h5>
+			<div id="comment_body_3174912" class="blog_comment_body">真的很详细啊，谢谢分享</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3174912,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3174912,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3174912_avatar" style="display:none;">http://pic.cnblogs.com/face/737087/20150328113943.png</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3211716" class="layer">#57楼</a><a name="3211716" id="comment_anchor_3211716"></a></cite> <a id="a_comment_author_3211716" href="https://www.cnblogs.com/dddemon/" target="_blank">zz_demon</a> <a href="http://msg.cnblogs.com/send/zz_demon" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-06-19 14:39</span></small>
+			</h5>
+			<div id="comment_body_3211716" class="blog_comment_body">灰常感谢</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3211716,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3211716,&#39;Bury&#39;,this)">反对(0)</a></div>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3253322" class="layer">#58楼</a><a name="3253322" id="comment_anchor_3253322"></a></cite> <a id="a_comment_author_3253322" href="https://www.cnblogs.com/eyeear/" target="_blank">eyeear</a> <a href="http://msg.cnblogs.com/send/eyeear" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-08-24 17:58</span></small>
+			</h5>
+			<div id="comment_body_3253322" class="blog_comment_body">谢谢楼主的分享</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3253322,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3253322,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3253322_avatar" style="display:none;">http://pic.cnblogs.com/face/774999/20161215170532.png</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3277417" class="layer">#59楼</a><a name="3277417" id="comment_anchor_3277417"></a></cite> <a id="a_comment_author_3277417" href="https://www.cnblogs.com/CoCo1042877726/" target="_blank">快乐的八宝鱼</a> <a href="http://msg.cnblogs.com/send/%E5%BF%AB%E4%B9%90%E7%9A%84%E5%85%AB%E5%AE%9D%E9%B1%BC" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-09-30 15:56</span></small>
+			</h5>
+			<div id="comment_body_3277417" class="blog_comment_body">32个赞 楼主！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3277417,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3277417,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3277417_avatar" style="display:none;">http://pic.cnblogs.com/face/736710/20150609134753.png</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3280032" class="layer">#60楼</a><a name="3280032" id="comment_anchor_3280032"></a></cite> <a id="a_comment_author_3280032" href="https://www.cnblogs.com/heciqi/" target="_blank">三颗蛀牙</a> <a href="http://msg.cnblogs.com/send/%E4%B8%89%E9%A2%97%E8%9B%80%E7%89%99" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-10-08 12:01</span></small>
+			</h5>
+			<div id="comment_body_3280032" class="blog_comment_body">楼主，有一个关于 git stash 疑问。为了修复issue-404 bug 从master上checkout 了一个分支，那么在dev分支上git stash 又有什么用呢，issue-404 分支修改后提交到master，这和dev没关系吧，dev可以不用git statsh也可以继续之前的工作啊。场景应该是这样，issue-404 bug 在dev下修复，使用git statsh 隐藏dev之前所做的修改，issue-404 bug修复后提交到master，dev分支再恢复被隐藏的文件。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3280032,&#39;Digg&#39;,this)">支持(1)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3280032,&#39;Bury&#39;,this)">反对(0)</a></div>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3291599" class="layer">#61楼</a><a name="3291599" id="comment_anchor_3291599"></a></cite> <a id="a_comment_author_3291599" href="https://www.cnblogs.com/acm1314/" target="_blank">草滩小恪</a> <a href="http://msg.cnblogs.com/send/%E8%8D%89%E6%BB%A9%E5%B0%8F%E6%81%AA" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-10-25 13:27</span></small>
+			</h5>
+			<div id="comment_body_3291599" class="blog_comment_body">怒占61楼！本来学git学了好久也不会用（弱，英文奇差）， 楼主的图文很详细！ 爆赞！ 中国技术圈， 就缺楼主这样的人。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3291599,&#39;Digg&#39;,this)">支持(1)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3291599,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3291599_avatar" style="display:none;">http://pic.cnblogs.com/face/740551/20160602193906.png</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3294755" class="layer">#62楼</a><a name="3294755" id="comment_anchor_3294755"></a></cite> <a id="a_comment_author_3294755" href="https://www.cnblogs.com/junwu/" target="_blank">小五五五</a> <a href="http://msg.cnblogs.com/send/%E5%B0%8F%E4%BA%94%E4%BA%94%E4%BA%94" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-10-29 17:00</span></small>
+			</h5>
+			<div id="comment_body_3294755" class="blog_comment_body">楼主你好<br><br>ssh-keygen  -t rsa –C “youremail@example.com”, 由于我本地此前运行过一次，所以本地有，如下所示：<br><br>我本地运行ssh-keygen 说不是内部或者外部命令 请问咋解决 我卡在这儿了 是因为我没配置环境变量的问题吗 我不是java出身不懂什么环境变量 见笑了</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3294755,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3294755,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3294755_avatar" style="display:none;">http://pic.cnblogs.com/face/101773/20160615172340.png</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3300646" class="layer">#63楼</a><a name="3300646" id="comment_anchor_3300646"></a></cite> <a id="a_comment_author_3300646" href="http://home.cnblogs.com/u/199963/" target="_blank">Galiana</a> <a href="http://msg.cnblogs.com/send/Galiana" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-11-06 17:45</span></small>
+			</h5>
+			<div id="comment_body_3300646" class="blog_comment_body">赞到没朋友！！！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3300646,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3300646,&#39;Bury&#39;,this)">反对(0)</a></div>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3301045" class="layer">#64楼</a><a name="3301045" id="comment_anchor_3301045"></a>[<span class="louzhu">楼主</span>]</cite> <a id="a_comment_author_3301045" href="https://www.cnblogs.com/tugenhua0707/" target="_blank">龙恩0707</a> <a href="http://msg.cnblogs.com/send/%E9%BE%99%E6%81%A90707" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-11-07 21:07</span></small>
+			</h5>
+			<div id="comment_body_3301045" class="blog_comment_body"><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3291599" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3291599);">@</a>
+草滩小恪<br>谢谢大家的关注~ 本人现在在写javascipt技术教程 大概2016年前夕会写出来 到时候请多多关注~ 绝对比买书的内容更好，是日常开发经常会碰到的问题~ 也就是javacript基本功~</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3301045,&#39;Digg&#39;,this)">支持(2)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3301045,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3301045_avatar" style="display:none;">http://pic.cnblogs.com/face/561794/20160306101106.png</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3341694" class="layer">#65楼</a><a name="3341694" id="comment_anchor_3341694"></a></cite> <a id="a_comment_author_3341694" href="http://home.cnblogs.com/u/487412/" target="_blank">丶静安</a> <a href="http://msg.cnblogs.com/send/%E4%B8%B6%E9%9D%99%E5%AE%89" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-01-05 21:56</span></small>
+			</h5>
+			<div id="comment_body_3341694" class="blog_comment_body">32赞</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3341694,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3341694,&#39;Bury&#39;,this)">反对(0)</a></div>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3359591" class="layer">#66楼</a><a name="3359591" id="comment_anchor_3359591"></a></cite> <a id="a_comment_author_3359591" href="https://www.cnblogs.com/JeffController/" target="_blank">_Vegetables</a> <a href="http://msg.cnblogs.com/send/_Vegetables" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-02-04 17:05</span></small>
+			</h5>
+			<div id="comment_body_3359591" class="blog_comment_body">楼主，你为何这么叼，对于想学习一下Git的我，简直。。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3359591,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3359591,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3359591_avatar" style="display:none;">http://pic.cnblogs.com/face/672407/20140914154933.png</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3361814" class="layer">#67楼</a><a name="3361814" id="comment_anchor_3361814"></a></cite> <a id="a_comment_author_3361814" href="https://www.cnblogs.com/yejianping/" target="_blank">叶子一哥</a> <a href="http://msg.cnblogs.com/send/%E5%8F%B6%E5%AD%90%E4%B8%80%E5%93%A5" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-02-16 14:34</span></small>
+			</h5>
+			<div id="comment_body_3361814" class="blog_comment_body">赞一个</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3361814,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3361814,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3361814_avatar" style="display:none;">http://pic.cnblogs.com/face/559468/20130819224001.png</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3363856" class="layer">#68楼</a><a name="3363856" id="comment_anchor_3363856"></a></cite> <a id="a_comment_author_3363856" href="https://www.cnblogs.com/wuheng1991/" target="_blank">侠岚之弋痕夕</a> <a href="http://msg.cnblogs.com/send/%E4%BE%A0%E5%B2%9A%E4%B9%8B%E5%BC%8B%E7%97%95%E5%A4%95" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-02-19 16:43</span></small>
+			</h5>
+			<div id="comment_body_3363856" class="blog_comment_body">mark一下，咱老百姓必须赞一个</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3363856,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3363856,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3363856_avatar" style="display:none;">http://pic.cnblogs.com/face/857479/20160216165127.png</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3368971" class="layer">#69楼</a><a name="3368971" id="comment_anchor_3368971"></a></cite> <a id="a_comment_author_3368971" href="https://www.cnblogs.com/go-onxp/" target="_blank">fovi</a> <a href="http://msg.cnblogs.com/send/fovi" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-02-29 21:53</span></small>
+			</h5>
+			<div id="comment_body_3368971" class="blog_comment_body">mark</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3368971,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3368971,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3368971_avatar" style="display:none;">http://pic.cnblogs.com/face/u326483.jpg?id=10082854</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3383475" class="layer">#70楼</a><a name="3383475" id="comment_anchor_3383475"></a></cite> <a id="a_comment_author_3383475" href="https://www.cnblogs.com/server126/" target="_blank">server126</a> <a href="http://msg.cnblogs.com/send/server126" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-03-17 10:43</span></small>
+			</h5>
+			<div id="comment_body_3383475" class="blog_comment_body">非常感谢分享。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3383475,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3383475,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3383475_avatar" style="display:none;">http://pic.cnblogs.com/face/111113/20130324085720.png</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3386565" class="layer">#71楼</a><a name="3386565" id="comment_anchor_3386565"></a></cite> <a id="a_comment_author_3386565" href="https://www.cnblogs.com/chen-yong/" target="_blank">游荡的沙</a> <a href="http://msg.cnblogs.com/send/%E6%B8%B8%E8%8D%A1%E7%9A%84%E6%B2%99" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-03-21 09:57</span></small>
+			</h5>
+			<div id="comment_body_3386565" class="blog_comment_body">32赞！学习了</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3386565,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3386565,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3386565_avatar" style="display:none;">http://pic.cnblogs.com/face/108413/20130524144203.png</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3393027" class="layer">#72楼</a><a name="3393027" id="comment_anchor_3393027"></a></cite> <a id="a_comment_author_3393027" href="https://www.cnblogs.com/gaofeifiy/" target="_blank">吾辈丶何以为战</a> <a href="http://msg.cnblogs.com/send/%E5%90%BE%E8%BE%88%E4%B8%B6%E4%BD%95%E4%BB%A5%E4%B8%BA%E6%88%98" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-03-27 22:05</span></small>
+			</h5>
+			<div id="comment_body_3393027" class="blog_comment_body">真的学到了，楼主写的很细致<br>...真的不用加上一句楼主好人一生平安？</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3393027,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3393027,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3393027_avatar" style="display:none;">http://pic.cnblogs.com/face/828221/20151223202355.png</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3406354" class="layer">#73楼</a><a name="3406354" id="comment_anchor_3406354"></a></cite> <a id="a_comment_author_3406354" href="https://www.cnblogs.com/hanon/" target="_blank">hanon</a> <a href="http://msg.cnblogs.com/send/hanon" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-04-12 20:03</span></small>
+			</h5>
+			<div id="comment_body_3406354" class="blog_comment_body">你好，我刚刚接触msysGit这个软件，然后其中你说的那个把txt里面的内容存入库中的这个功能，我在敲下命令退不回来了，且还没实现功能，劳烦您有空的时候帮我看看这是什么问题<img src="./Git使用教程 - 龙恩0707 - 博客园_files/934851-20160412200223160-312549903.jpg" alt="" border="0" "=""></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3406354,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3406354,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3406354_avatar" style="display:none;">http://pic.cnblogs.com/face/934851/20160412192403.png</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3425230" class="layer">#74楼</a><a name="3425230" id="comment_anchor_3425230"></a></cite> <a id="a_comment_author_3425230" href="https://www.cnblogs.com/hgbgfg/" target="_blank">hgbgfg</a> <a href="http://msg.cnblogs.com/send/hgbgfg" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-05-07 20:06</span></small>
+			</h5>
+			<div id="comment_body_3425230" class="blog_comment_body">楼主写的很好，学习了</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3425230,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3425230,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3425230_avatar" style="display:none;">http://pic.cnblogs.com/face/863161/20151222200159.png</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3453826" class="layer">#75楼</a><a name="3453826" id="comment_anchor_3453826"></a></cite> <a id="a_comment_author_3453826" href="http://home.cnblogs.com/u/979474/" target="_blank">glxu</a> <a href="http://msg.cnblogs.com/send/glxu" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-06-17 09:25</span></small>
+			</h5>
+			<div id="comment_body_3453826" class="blog_comment_body">昨晚看了一遍，讲得很清楚，有收获。感谢 ：）</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3453826,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3453826,&#39;Bury&#39;,this)">反对(0)</a></div>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3460343" class="layer">#76楼</a><a name="3460343" id="comment_anchor_3460343"></a></cite> <a id="a_comment_author_3460343" href="http://home.cnblogs.com/u/929495/" target="_blank">暖阳阳</a> <a href="http://msg.cnblogs.com/send/%E6%9A%96%E9%98%B3%E9%98%B3" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-06-28 16:49</span></small>
+			</h5>
+			<div id="comment_body_3460343" class="blog_comment_body">git操作写的太好了，谢谢楼主</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3460343,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3460343,&#39;Bury&#39;,this)">反对(0)</a></div>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3463971" class="layer">#77楼</a><a name="3463971" id="comment_anchor_3463971"></a></cite> <a id="a_comment_author_3463971" href="https://www.cnblogs.com/dacude/" target="_blank">北落师门α</a> <a href="http://msg.cnblogs.com/send/%E5%8C%97%E8%90%BD%E5%B8%88%E9%97%A8%CE%B1" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-07-05 10:52</span></small>
+			</h5>
+			<div id="comment_body_3463971" class="blog_comment_body">非常感谢。详细简要，有用！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3463971,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3463971,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3463971_avatar" style="display:none;">http://pic.cnblogs.com/face/521636/20170827100956.png</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3470602" class="layer">#78楼</a><a name="3470602" id="comment_anchor_3470602"></a></cite> <a id="a_comment_author_3470602" href="https://www.cnblogs.com/jacksonyin/" target="_blank">Alen在西安</a> <a href="http://msg.cnblogs.com/send/Alen%E5%9C%A8%E8%A5%BF%E5%AE%89" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-07-15 12:13</span></small>
+			</h5>
+			<div id="comment_body_3470602" class="blog_comment_body">非常详细的入门教程</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3470602,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3470602,&#39;Bury&#39;,this)">反对(0)</a></div>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3471921" class="layer">#79楼</a><a name="3471921" id="comment_anchor_3471921"></a></cite> <a id="a_comment_author_3471921" href="https://www.cnblogs.com/kid1412/" target="_blank">kid1412</a> <a href="http://msg.cnblogs.com/send/kid1412" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-07-18 14:13</span></small>
+			</h5>
+			<div id="comment_body_3471921" class="blog_comment_body">非常赞,非常感谢!</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3471921,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3471921,&#39;Bury&#39;,this)">反对(0)</a></div>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3503526" class="layer">#80楼</a><a name="3503526" id="comment_anchor_3503526"></a></cite> <a id="a_comment_author_3503526" href="https://www.cnblogs.com/mynotebook/" target="_blank">my_notebook</a> <a href="http://msg.cnblogs.com/send/my_notebook" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-09-05 15:08</span></small>
+			</h5>
+			<div id="comment_body_3503526" class="blog_comment_body">很好很强大！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3503526,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3503526,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3503526_avatar" style="display:none;">http://pic.cnblogs.com/face/1010683/20161014165819.png</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3537725" class="layer">#81楼</a><a name="3537725" id="comment_anchor_3537725"></a></cite> <a id="a_comment_author_3537725" href="https://www.cnblogs.com/gggzly/" target="_blank">追溯。</a> <a href="http://msg.cnblogs.com/send/%E8%BF%BD%E6%BA%AF%E3%80%82" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-10-21 14:38</span></small>
+			</h5>
+			<div id="comment_body_3537725" class="blog_comment_body">mark</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3537725,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3537725,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3537725_avatar" style="display:none;">http://pic.cnblogs.com/face/747189/20161003100131.png</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3595851" class="layer">#82楼</a><a name="3595851" id="comment_anchor_3595851"></a></cite> <a id="a_comment_author_3595851" href="https://www.cnblogs.com/yipihema/" target="_blank">一匹河马</a> <a href="http://msg.cnblogs.com/send/%E4%B8%80%E5%8C%B9%E6%B2%B3%E9%A9%AC" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2017-01-04 10:32</span></small>
+			</h5>
+			<div id="comment_body_3595851" class="blog_comment_body">楼主应该把参考的廖雪峰的博文地址写上，写上参考出处。虽然里面有楼主自己的东西，但是把参考写清楚，作为对原创人员的一种尊重，不是更好吗？</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3595851,&#39;Digg&#39;,this)">支持(1)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3595851,&#39;Bury&#39;,this)">反对(0)</a></div>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3612803" class="layer">#83楼</a><a name="3612803" id="comment_anchor_3612803"></a></cite> <a id="a_comment_author_3612803" href="http://home.cnblogs.com/u/372210/" target="_blank">枯木郎君</a> <a href="http://msg.cnblogs.com/send/%E6%9E%AF%E6%9C%A8%E9%83%8E%E5%90%9B" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2017-02-06 16:34</span></small>
+			</h5>
+			<div id="comment_body_3612803" class="blog_comment_body">楼主真大师也</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3612803,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3612803,&#39;Bury&#39;,this)">反对(0)</a></div>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3616509" class="layer">#84楼</a><a name="3616509" id="comment_anchor_3616509"></a></cite> <a id="a_comment_author_3616509" href="https://www.cnblogs.com/hansonzhe/" target="_blank">hansonzhe</a> <a href="http://msg.cnblogs.com/send/hansonzhe" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2017-02-11 10:50</span></small>
+			</h5>
+			<div id="comment_body_3616509" class="blog_comment_body">没有完全掌握，但是也学习了蛮多，非常感谢楼主，推荐。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3616509,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3616509,&#39;Bury&#39;,this)">反对(0)</a></div>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3622151" class="layer">#85楼</a><a name="3622151" id="comment_anchor_3622151"></a></cite> <a id="a_comment_author_3622151" href="https://www.cnblogs.com/hechunyang/" target="_blank">贺春阳</a> <a href="http://msg.cnblogs.com/send/%E8%B4%BA%E6%98%A5%E9%98%B3" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2017-02-20 11:23</span></small>
+			</h5>
+			<div id="comment_body_3622151" class="blog_comment_body">受教了 感谢楼主</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3622151,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3622151,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3622151_avatar" style="display:none;">http://pic.cnblogs.com/face/582296/20170719105904.png</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3640283" class="layer">#86楼</a><a name="3640283" id="comment_anchor_3640283"></a></cite> <a id="a_comment_author_3640283" href="http://home.cnblogs.com/u/950471/" target="_blank">墨城烟火</a> <a href="http://msg.cnblogs.com/send/%E5%A2%A8%E5%9F%8E%E7%83%9F%E7%81%AB" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2017-03-14 14:29</span></small>
+			</h5>
+			<div id="comment_body_3640283" class="blog_comment_body">谢谢博主，写得很好和实用！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3640283,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3640283,&#39;Bury&#39;,this)">反对(0)</a></div>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3655763" class="layer">#87楼</a><a name="3655763" id="comment_anchor_3655763"></a></cite> <a id="a_comment_author_3655763" href="https://www.cnblogs.com/yusolo/" target="_blank">usolo</a> <a href="http://msg.cnblogs.com/send/usolo" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2017-03-30 16:31</span></small>
+			</h5>
+			<div id="comment_body_3655763" class="blog_comment_body">管理起来还是不方便，有没有带UI的git管理工具</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3655763,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3655763,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3655763_avatar" style="display:none;">http://pic.cnblogs.com/face/310389/20171102115118.png</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3675716" class="layer">#88楼</a><a name="3675716" id="comment_anchor_3675716"></a></cite> <a id="a_comment_author_3675716" href="http://home.cnblogs.com/u/753998/" target="_blank">阿七xxx</a> <a href="http://msg.cnblogs.com/send/%E9%98%BF%E4%B8%83xxx" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2017-04-24 14:29</span></small>
+			</h5>
+			<div id="comment_body_3675716" class="blog_comment_body">谢谢涂同学<br>按着案例来说明。我跟着操作，就明白了。<br>谢谢。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3675716,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3675716,&#39;Bury&#39;,this)">反对(0)</a></div>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3687456" class="layer">#89楼</a><a name="3687456" id="comment_anchor_3687456"></a></cite> <a id="a_comment_author_3687456" href="https://www.cnblogs.com/maomao-Sunshine/" target="_blank">执着的烙印</a> <a href="http://msg.cnblogs.com/send/%E6%89%A7%E7%9D%80%E7%9A%84%E7%83%99%E5%8D%B0" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2017-05-09 09:44</span></small>
+			</h5>
+			<div id="comment_body_3687456" class="blog_comment_body">多谢楼主,真全</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3687456,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3687456,&#39;Bury&#39;,this)">反对(0)</a></div>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3694824" class="layer">#90楼</a><a name="3694824" id="comment_anchor_3694824"></a></cite> <a id="a_comment_author_3694824" href="https://www.cnblogs.com/wdwyy/" target="_blank">王一一</a> <a href="http://msg.cnblogs.com/send/%E7%8E%8B%E4%B8%80%E4%B8%80" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2017-05-17 20:57</span></small>
+			</h5>
+			<div id="comment_body_3694824" class="blog_comment_body">感谢分享</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3694824,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3694824,&#39;Bury&#39;,this)">反对(0)</a></div>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3709370" class="layer">#91楼</a><a name="3709370" id="comment_anchor_3709370"></a></cite> <a id="a_comment_author_3709370" href="https://www.cnblogs.com/liyunhua/" target="_blank">静逸</a> <a href="http://msg.cnblogs.com/send/%E9%9D%99%E9%80%B8" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2017-06-07 19:04</span></small>
+			</h5>
+			<div id="comment_body_3709370" class="blog_comment_body">似乎必须点个赞才对得起这么详尽的描述</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3709370,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3709370,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3709370_avatar" style="display:none;">http://pic.cnblogs.com/face/755265/20150509140625.png</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3738748" class="layer">#92楼</a><a name="3738748" id="comment_anchor_3738748"></a></cite> <a id="a_comment_author_3738748" href="https://www.cnblogs.com/su20110702048/" target="_blank">嘿你的益达</a> <a href="http://msg.cnblogs.com/send/%E5%98%BF%E4%BD%A0%E7%9A%84%E7%9B%8A%E8%BE%BE" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2017-07-19 11:32</span></small>
+			</h5>
+			<div id="comment_body_3738748" class="blog_comment_body">很详细啊，受教了</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3738748,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3738748,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3738748_avatar" style="display:none;">http://pic.cnblogs.com/face/1056464/20161104031548.png</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3754776" class="layer">#93楼</a><a name="3754776" id="comment_anchor_3754776"></a></cite> <a id="a_comment_author_3754776" href="https://www.cnblogs.com/rrrena/" target="_blank">RRRena</a> <a href="http://msg.cnblogs.com/send/RRRena" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2017-08-10 15:08</span></small>
+			</h5>
+			<div id="comment_body_3754776" class="blog_comment_body">可以转载吗？虽然在用git，你的这篇博客是我看到关于git最详细的一篇博客了，没有两三个小时以上写不完的，受教了。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3754776,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3754776,&#39;Bury&#39;,this)">反对(0)</a></div>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3761669" class="layer">#94楼</a><a name="3761669" id="comment_anchor_3761669"></a></cite> <a id="a_comment_author_3761669" href="https://www.cnblogs.com/feier1992/" target="_blank">feier1992</a> <a href="http://msg.cnblogs.com/send/feier1992" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2017-08-19 12:12</span></small>
+			</h5>
+			<div id="comment_body_3761669" class="blog_comment_body">写的好详细,通俗易懂 谢谢楼主.</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3761669,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3761669,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3761669_avatar" style="display:none;">http://pic.cnblogs.com/face/761892/20160816230557.png</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3770324" class="layer">#95楼</a><a name="3770324" id="comment_anchor_3770324"></a></cite> <a id="a_comment_author_3770324" href="http://home.cnblogs.com/u/1227547/" target="_blank">OkNoBug!</a> <a href="http://msg.cnblogs.com/send/OkNoBug%21" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2017-08-30 10:35</span></small>
+			</h5>
+			<div id="comment_body_3770324" class="blog_comment_body">真是太强大了，mark一下<br>Git常用命令大全:<a href="http://t.cn/RCwqbg9" target="_blank">http://t.cn/RCwqbg9</a></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3770324,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3770324,&#39;Bury&#39;,this)">反对(0)</a></div>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3792203" class="layer">#96楼</a><a name="3792203" id="comment_anchor_3792203"></a></cite> <a id="a_comment_author_3792203" href="http://home.cnblogs.com/u/1244829/" target="_blank">技术宅——</a> <a href="http://msg.cnblogs.com/send/%E6%8A%80%E6%9C%AF%E5%AE%85%E2%80%94%E2%80%94" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2017-09-21 15:27</span></small>
+			</h5>
+			<div id="comment_body_3792203" class="blog_comment_body">还行，挺详细的。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3792203,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3792203,&#39;Bury&#39;,this)">反对(0)</a></div>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3833636" class="layer">#97楼</a><a name="3833636" id="comment_anchor_3833636"></a></cite> <a id="a_comment_author_3833636" href="https://www.cnblogs.com/douxuesong/" target="_blank">嘘....小声点</a> <a href="http://msg.cnblogs.com/send/%E5%98%98....%E5%B0%8F%E5%A3%B0%E7%82%B9" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2017-11-07 16:37</span></small>
+			</h5>
+			<div id="comment_body_3833636" class="blog_comment_body">就喜欢这样细的技术贴</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3833636,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3833636,&#39;Bury&#39;,this)">反对(0)</a></div>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#3913415" class="layer">#98楼</a><a name="3913415" id="comment_anchor_3913415"></a><span id="comment-maxId" style="display:none;">3913415</span><span id="comment-maxDate" style="display:none;">2018/3/1 15:08:39</span></cite> <a id="a_comment_author_3913415" href="http://home.cnblogs.com/u/1118903/" target="_blank">noodleprince</a> <a href="http://msg.cnblogs.com/send/noodleprince" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2018-03-01 15:08</span></small>
+			</h5>
+			<div id="comment_body_3913415" class="blog_comment_body">收藏了，感谢博主</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3913415,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3913415,&#39;Bury&#39;,this)">反对(0)</a></div>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+</ol>
+
+<script language="javascript" type="text/javascript">
+    var m = window.__blog.commentListRendered;
+    if (m) { m(__$("commentList")); }
+</script><div id="comments_pager_bottom"><div class="pager"><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#!comments" onclick="commentManager.renderComments(1,50);return false;">&lt; Prev</a><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#!comments" onclick="commentManager.renderComments(1,50);return false;">1</a><span class="current">2</span></div></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#" onclick="return RefreshPage();">刷新页面</a><a href="http://www.cnblogs.com/tugenhua0707/p/4050072.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】超50万VC++源码: 大型组态工控、电力仿真CAD与GIS源码库！</a><br><a href="https://cloud.tencent.com/developer/edu/major-100008?fromSource=gwzcw.1297698.1297698.1297698" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-腾讯蓝鲸&#39;)">【推荐】企业SaaS应用开发实战，快速构建企业运营/运维系统</a><br><a href="https://www.grapecity.com.cn/developer/activereports?utm_source=cnblogs&amp;utm_medium=blogpage&amp;utm_term=bottom&amp;utm_content=AR&amp;utm_campaign=community" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-ActiveReports&#39;)">【推荐】ActiveReports 报表控件，全面满足 .NET开发需求</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="https://cloud.tencent.com/act/ecommerce?fromSource=gwzcw.1191780.1191780.1191780" target="_blank"><img width="300" height="250" src="./Git使用教程 - 龙恩0707 - 博客园_files/24442-20180814102629155-1096944426.png" alt="qcloud0814" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;C1&#39;);"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="https://news.cnblogs.com/n/605652/" target="_blank">子弹短信的火爆 只是因为罗永浩的号召力？</a><br> ·  <a href="https://news.cnblogs.com/n/605662/" target="_blank">别再误读了！一文读懂人工智能与人类智能的差异化</a><br> ·  <a href="https://news.cnblogs.com/n/605665/" target="_blank">马蜂窝8万打车赔款到账 从俄罗斯到希腊的车可以开了</a><br> ·  <a href="https://news.cnblogs.com/n/605666/" target="_blank">TCL集团上半年实现净利润15.86亿元 股价早盘微跌</a><br> ·  <a href="https://news.cnblogs.com/n/605650/" target="_blank">纳指与标普500指数创新高 哔哩哔哩大涨13.44%</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="http://clickc.admaster.com.cn/c/a113319,b2799157,c1705,i0,m101,8a1,8b3,h" target="_blank"><img width="468" height="60" src="./Git使用教程 - 龙恩0707 - 博客园_files/24442-20180821211532241-413062430.jpg" alt="华为CH0822" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;C2&#39;);"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="https://kb.cnblogs.com/page/603663/" target="_blank">如何招到一个靠谱的程序员</a><br> ·  <a href="https://kb.cnblogs.com/page/573614/" target="_blank">一个故事看懂“区块链”</a><br> ·  <a href="https://kb.cnblogs.com/page/603697/" target="_blank">被踢出去的用户</a><br> ·  <a href="https://kb.cnblogs.com/page/603279/" target="_blank">成为一个有目标的学习者</a><br> ·  <a href="https://kb.cnblogs.com/page/602903/" target="_blank">历史转折中的“杭派工程师”</a><br></div>» <a href="https://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+        </div>
+
+        <script type="text/javascript">
+            var m = window.__blog.contentRendered;
+            if (m) { m(__$("content")); }
+        </script>
+
+        <div id="sidebar">
+            
+<div id="about">
+<div>
+<h2 id="about_title">About</h2>
+<div id="about_body">
+<div id="blog-news"><div class="add-default">
+  <div style="float: left; margin-right: 5px; width: 190px">
+  
+<img width="190" height="270" src="./Git使用教程 - 龙恩0707 - 博客园_files/561794-20180322222243947-251092926.jpg">
+</div>
+<div class="about_generator">
+<label>所在地</label>：浙江- 杭州<br>
+<label>姓名：</label>涂根华<br>
+<label>所在职位</label>：前端攻城师<br>
+<label>兴趣爱好</label>：web前端、旅游等.<br>
+<label>人生格言</label>：路漫漫其修远兮 吾将上下而求索~~<br>
+<label>写文章宗旨：</label>可以理解为2个关键字：细和易，详细的细，尽量保证每篇文章非常的详细，容易的易，且保证每篇文章更通俗易懂，
+更容易透彻的理解，更深入的理解。不管你是前端大牛，还是前端小白或想要学习这块知识点的，都希望能看懂和理解透~ <br>
+<label>近期目标：</label>做最专业的博客，分享更多的知识点~ 供大家一起学习~  一起做好分享~  
+</div>
+</div><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/tugenhua0707/">龙恩0707</a><br>园龄：<a href="https://home.cnblogs.com/u/tugenhua0707/" title="入园时间：2013-08-27">5年</a><br>粉丝：<a href="https://home.cnblogs.com/u/tugenhua0707/followers/">1048</a><br>关注：<a href="https://home.cnblogs.com/u/tugenhua0707/followees/">22</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;0bb325ba-be0e-e311-8d02-90b11c0b17d6&#39;)">+加关注</a></div><script>getFollowStatus('0bb325ba-be0e-e311-8d02-90b11c0b17d6')</script></div></div>
+<script type="text/javascript">loadBlogNews();</script>
+</div>
+</div>
+</div>
+
+            <script type="text/javascript">
+                var m = window.__blog.aboutRendered;
+                if (m) { m(__$("about")); }
+            </script>
+            
+<div id="mySearchWrapper">
+    <div id="mySearch">
+        <input type="image" src="./Git使用教程 - 龙恩0707 - 博客园_files/btnsearch.gif" id="btnZzk" class="submit" onclick="zzk_go();return false;">
+        <label class="lb_search"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="keyword"></label>
+    </div>
+</div>
+
+            <script type="text/javascript">
+                var m = window.__blog.searchFormRendered;
+                if (m) { m(__$("searchform")); }
+            </script>
+            <div id="sideMain">
+            <div id="side-recent-posts">
+        <h2>最新随笔</h2>
+        <ul class="bullet">
+                <li><a href="https://www.cnblogs.com/tugenhua0707/p/9526748.html">webpack4升级extract-text-webpack-plugin和UglifyJsPlugin问题</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/p/9526677.html">深入浅出的webpack构建工具---AutoDllPlugin插件(八)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/p/9520780.html">深入浅出的webpack构建工具---DllPlugin DllReferencePlugin提高构建速度(七)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/p/9500794.html">深入浅出的webpack构建工具---webpack3版本的CommonsChunkPlugin详解(六)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/p/9478921.html">深入浅出的webpack构建工具---PostCss(五)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/p/9464984.html">深入浅出的webpack构建工具---devTool中SourceMap模式详解(四)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/p/9452471.html">深入浅出的webpack构建工具---babel之配置文件.babelrc(三)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/p/9439831.html">vue 如何在循环中 "监听" 的绑定v-model数据</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/p/9418526.html">深入浅出的webpack构建工具---DevServer配置项(二)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/p/9384953.html">深入浅出的webpack构建工具---webpack基本配置(一)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/p/9380378.html">Echarts 柱状图配置详解</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/p/9380352.html">Echars折线配置详解</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/p/9297383.html">Echarts中太阳图（Sunburst）的实例</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/p/9281866.html">MongoDB shell 介绍</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/p/9275965.html">js深度克隆对象</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/p/9275958.html">js将有父子关系的数据转换成树形结构数据</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/p/9256605.html">使用Mongoose类库实现简单的增删改查</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/p/9250673.html">MongoDB可视化工具--Robo 3T 使用教程</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/p/9241225.html">MongoDB数据库中更新与删除数据</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/p/9226748.html">MongoDB数据库中查询数据(下)</a></li>
+        </ul>
+    </div><div id="side-recent-comments">
+        <h2>最新评论</h2>
+        <ul class="voice">
+                <li>
+                    <a href="https://www.cnblogs.com/tugenhua0707/p/9500794.html#4045916">Re:深入浅出的webpack构建工具---webpack3版本的CommonsChunkPlugin详解(六)</a>
+                    <br>
+                    <a class="child" href="https://www.cnblogs.com/tugenhua0707/p/9500794.html#4045916">
+                        @riskers
+所以标题标明了webpack3啊，下一篇就是webpack4的配置了
+                        -- 龙恩0707
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.cnblogs.com/tugenhua0707/p/9500794.html#4045884">Re:深入浅出的webpack构建工具---webpack3版本的CommonsChunkPlugin详解(六)</a>
+                    <br>
+                    <a class="child" href="https://www.cnblogs.com/tugenhua0707/p/9500794.html#4045884">
+                        webpack4 已经把这玩意废除了
+                        -- riskers
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.cnblogs.com/tugenhua0707/p/7675185.html#4041321">Re:javascript中的异步 macrotask 和 microtask 简介</a>
+                    <br>
+                    <a class="child" href="http://www.cnblogs.com/tugenhua0707/p/7675185.html#4041321">
+                        @此旋非彼璇
+。。。。 setTimeout, setInterval, setImmediate, I/O, UI rendering 属于 macrotasks,  microtasks包含 process.nextTick, Promise, MutationObserver
+                        -- 龙恩0707
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.cnblogs.com/tugenhua0707/p/7675185.html#4041209">Re:javascript中的异步 macrotask 和 microtask 简介</a>
+                    <br>
+                    <a class="child" href="http://www.cnblogs.com/tugenhua0707/p/7675185.html#4041209">
+                        引用博主的原话：
+macrotasks: setTimeout, setInterval, setImmediate, I/O, UI rendering
+microtasks: process.nextTick, Promise, MutationObserver
+博主，请问哪些是属于I/O,哪些是属于MutationObserver，比如click事件是属于哪个？
+                        -- 此旋非彼璇
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.cnblogs.com/tugenhua0707/p/8068075.html#4040025">Re:vue2.0---vue-router总结(项目基于vue-cli)</a>
+                    <br>
+                    <a class="child" href="http://www.cnblogs.com/tugenhua0707/p/8068075.html#4040025">
+                        "http://localhost:8080/page/app/helloworld/xx=1 的时候，然后我们在 heeloworld这个组件内的created"  不是 /xx=1 应该是 /1 吧
+                        -- JackZhouMine
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.cnblogs.com/tugenhua0707/p/4771528.html#4039635">Re:ES6的promise对象研究</a>
+                    <br>
+                    <a class="child" href="http://www.cnblogs.com/tugenhua0707/p/4771528.html#4039635">
+                        @瑾秀年华
+改成如下这样的吧
+function ajaxPromise(url, data) {
+  return new Promise(function(resolve, reject) {
+    $.ajax({
+      url: url,
+      contentType: 'json',
+      data: data,
+      success: function(resData) {
+        resolve(resData);
+      }
+    })              
+  })
+}
+ajaxPromise('https://cnodejs.org/api/v1/topics', {}).then(function(res) {
+  console.log(res);
+  var id = res.data[0].id;
+  return id;
+}).then(function(id) {
+  console.log(1111);
+  console.log(id);
+  ajaxPromise('https://cnodejs.org/api/v1/topics' + id, {});
+});
+                        -- 龙恩0707
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.cnblogs.com/tugenhua0707/p/4771528.html#4039634">Re:ES6的promise对象研究</a>
+                    <br>
+                    <a class="child" href="http://www.cnblogs.com/tugenhua0707/p/4771528.html#4039634">
+                        @我又不喜欢下雨
+改成如下这种吧；
+function ajaxPromise(url, data) {
+  return new Promise(function(resolve, reject) {
+    $.ajax({
+      url: url,
+      contentType: 'json',
+      data: data,
+      success: function(resData) {
+        resolve(resData);
+      }
+    })              
+  })
+}
+ajaxPromise('https://cnodejs.org/api/v1/topics', {}).then(function(res) {
+  console.log(res);
+  var id = res.data[0].id;
+  return id;
+}).then(function(id) {
+  console.log(1111);
+  console.log(id);
+  ajaxPromise('https://cnodejs.org/api/v1/topics' + id, {});
+});
+                        -- 龙恩0707
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.cnblogs.com/tugenhua0707/p/4771528.html#4039275">Re:ES6的promise对象研究</a>
+                    <br>
+                    <a class="child" href="http://www.cnblogs.com/tugenhua0707/p/4771528.html#4039275">
+                        @龙恩0707
+我就是试了不行才回复的。而且不止一次没用。我如果试都不试我会乱说嘛。我调试的时候他好像会先执行下面那个ajax再获取上面那个ajax的数据，所以下面那个ajax想要获取的数据就是为undefined了
+                        -- 我又不喜欢下雨
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.cnblogs.com/tugenhua0707/p/4771528.html#4039266">Re:ES6的promise对象研究</a>
+                    <br>
+                    <a class="child" href="http://www.cnblogs.com/tugenhua0707/p/4771528.html#4039266">
+                        @我又不喜欢下雨
+你试下
+                        -- 龙恩0707
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.cnblogs.com/tugenhua0707/p/8068075.html#4034879">Re:vue2.0---vue-router总结(项目基于vue-cli)</a>
+                    <br>
+                    <a class="child" href="http://www.cnblogs.com/tugenhua0707/p/8068075.html#4034879">
+                        好文
+                        -- jx_star
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.cnblogs.com/tugenhua0707/p/4771528.html#4032345">Re:ES6的promise对象研究</a>
+                    <br>
+                    <a class="child" href="http://www.cnblogs.com/tugenhua0707/p/4771528.html#4032345">
+                        var ajaxPromise = new Promise(function(resolve){
+    resolve();
+});
+ajaxPromise.then(function(){
+    <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-1-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;merror&gt;&lt;mtext&gt;.ajax({&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;url:&#39;&#39;,&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;dataType:&#39;json&#39;,&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;success:&amp;#xA0;function(data)&amp;#xA0;{&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;var&amp;#xA0;id&amp;#xA0;=&amp;#xA0;data.id;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;return&amp;#xA0;id;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;}&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#xA0;})}).then(function(id){&lt;/mtext&gt;&lt;/merror&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><span class="math" id="MathJax-Span-1" aria-hidden="true" style="vertical-align: 0.202em;"><span class="noError" id="MathJax-Span-2" style="display: inline-block;">.ajax({<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url:'',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataType:'json',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;success:&nbsp;function(data)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;id&nbsp;=&nbsp;data.id;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;id;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>}).then(function(id){</span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><merror><mtext>.ajax({&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url:'',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataType:'json',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;success:&nbsp;function(data)&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;id&nbsp;=&nbsp;data.id;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;id;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;})}).then(function(id){</mtext></merror></math></span></span><script type="math/tex" id="MathJax-Element-1">.ajax({
+        url:'',
+        dataType:'json',
+        success: function(data) {
+            var id = data.id;
+            return id;
+        }
+    })
+}).then(function(id){
+    </script>.ajax({
+        url:'',
+        dataType:'json',
+        data:{"id":id},
+        success: function(data){
+            console.log(data);
+        }
+    })
+});
+这个后面的ajax获取不到ID吧
+                        -- 我又不喜欢下雨
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.cnblogs.com/tugenhua0707/p/4722696.html#4023744">Re:理解javascript中的策略模式</a>
+                    <br>
+                    <a class="child" href="http://www.cnblogs.com/tugenhua0707/p/4722696.html#4023744">
+                        好文  已赞 已顶
+                        -- 一叶子啊
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.cnblogs.com/tugenhua0707/p/5180841.html#4019979">Re:H5移动端知识点总结</a>
+                    <br>
+                    <a class="child" href="http://www.cnblogs.com/tugenhua0707/p/5180841.html#4019979">
+                        楼主很用心，这是进来看到最用心的博客了，谢谢
+                        -- 紫陌垂杨
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.cnblogs.com/tugenhua0707/p/4637771.html#4014251">Re:Fiddler实战深入研究(二)</a>
+                    <br>
+                    <a class="child" href="http://www.cnblogs.com/tugenhua0707/p/4637771.html#4014251">
+                        非常棒 如此详细  感谢博主
+                        -- 幻世无双520
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.cnblogs.com/tugenhua0707/p/4666076.html#4002625">Re:Javascript 将图片的绝对路径转换为base64编码</a>
+                    <br>
+                    <a class="child" href="http://www.cnblogs.com/tugenhua0707/p/4666076.html#4002625">
+                        我的是用的本地文件的绝对路径,是不是因为是这个原因啊。是的话我该如何去改呢
+                        -- 西鸹
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.cnblogs.com/tugenhua0707/p/4666076.html#4002573">Re:Javascript 将图片的绝对路径转换为base64编码</a>
+                    <br>
+                    <a class="child" href="http://www.cnblogs.com/tugenhua0707/p/4666076.html#4002573">
+                        博主，为什么我运行以后得到的数据时  data:,这个啊我图片也是存在的。问下这是个什么情况/..望回复！！
+                        -- 西鸹
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.cnblogs.com/tugenhua0707/p/9165159.html#3997339">Re:Mac下安装Mongodb</a>
+                    <br>
+                    <a class="child" href="http://www.cnblogs.com/tugenhua0707/p/9165159.html#3997339">
+                        你还在坚持写啊，加个好友，你的微信与QQ是多少
+                        -- 淡水求咸
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.cnblogs.com/tugenhua0707/p/7528621.html#3980753">Re:理解Vue中的Render渲染函数</a>
+                    <br>
+                    <a class="child" href="http://www.cnblogs.com/tugenhua0707/p/7528621.html#3980753">
+                        @laplace
+你不用看 不就行了 你管别人公不公开呢？这还防着你啊？
+                        -- 龙恩0707
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.cnblogs.com/tugenhua0707/p/7528621.html#3980361">Re:理解Vue中的Render渲染函数</a>
+                    <br>
+                    <a class="child" href="http://www.cnblogs.com/tugenhua0707/p/7528621.html#3980361">
+                        @龙恩0707
+您能受累把这个不公开吗？ 百度了一下，标题不一样，内容确实一样的。 好憋屈。
+                        -- laplace
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.cnblogs.com/tugenhua0707/p/8179686.html#3979997">Re:深入学习rollup来进行打包</a>
+                    <br>
+                    <a class="child" href="http://www.cnblogs.com/tugenhua0707/p/8179686.html#3979997">
+                        很棒的文章，点个赞
+                        -- 艾泽拉斯回忆录
+                    </a>
+                </li>
+        </ul>
+    </div></div>
+            <div id="sideRight">
+            <div id="side-archives">
+        <h2>随笔档案</h2>
+        <ul class="date">
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2018/08.html">2018年8月(9)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2018/07.html">2018年7月(9)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2018/06.html">2018年6月(10)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2018/05.html">2018年5月(5)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2018/04.html">2018年4月(9)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2018/03.html">2018年3月(7)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2018/02.html">2018年2月(3)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2018/01.html">2018年1月(5)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2017/12.html">2017年12月(9)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2017/11.html">2017年11月(1)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2017/10.html">2017年10月(5)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2017/09.html">2017年9月(9)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2017/08.html">2017年8月(10)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2017/07.html">2017年7月(3)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2017/06.html">2017年6月(2)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2017/05.html">2017年5月(11)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2017/04.html">2017年4月(2)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2016/06.html">2016年6月(3)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2016/05.html">2016年5月(2)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2016/04.html">2016年4月(2)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2016/03.html">2016年3月(3)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2016/02.html">2016年2月(3)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2016/01.html">2016年1月(2)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2015/12.html">2015年12月(4)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2015/11.html">2015年11月(1)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2015/10.html">2015年10月(1)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2015/09.html">2015年9月(3)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2015/08.html">2015年8月(5)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2015/07.html">2015年7月(9)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2015/06.html">2015年6月(6)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2015/05.html">2015年5月(11)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2015/04.html">2015年4月(9)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2015/03.html">2015年3月(8)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2015/02.html">2015年2月(2)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2015/01.html">2015年1月(2)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2014/12.html">2014年12月(4)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2014/11.html">2014年11月(6)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2014/10.html">2014年10月(2)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2014/09.html">2014年9月(5)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2014/08.html">2014年8月(3)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2014/07.html">2014年7月(6)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2014/06.html">2014年6月(5)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2014/05.html">2014年5月(3)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2014/04.html">2014年4月(5)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2014/03.html">2014年3月(2)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2014/02.html">2014年2月(2)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2014/01.html">2014年1月(13)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2013/12.html">2013年12月(14)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2013/11.html">2013年11月(7)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2013/10.html">2013年10月(5)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2013/09.html">2013年9月(2)</a></li>
+                <li><a href="https://www.cnblogs.com/tugenhua0707/archive/2013/08.html">2013年8月(10)</a></li>
+        </ul>
+    </div></div>
+            <div id="sideLeft">
+            <div id="side-hottags">
+        <h2>我的标签</h2>
+        <ul class="folder">
+            <li><a href="https://www.cnblogs.com/tugenhua0707/tag/Fiddler%E6%98%AF%E4%B8%80%E6%AC%BE%E5%9F%BA%E4%BA%8Ewindows%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BD%AF%E4%BB%B6/">Fiddler是一款基于windows系统的代理服务器软件</a>(2)</li><li><a href="https://www.cnblogs.com/tugenhua0707/tag/Fiddler%E9%80%9A%E5%B8%B8%E6%8A%8A%E8%BF%99%E4%BA%9B%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91%E7%BB%99web%E6%9C%8D%E5%8A%A1%E5%99%A8/">Fiddler通常把这些请求转发给web服务器</a>(2)</li><li><a href="https://www.cnblogs.com/tugenhua0707/tag/Fiddler%E5%86%8D%E6%8A%8A%E5%93%8D%E5%BA%94%E8%BD%AC%E5%8F%91%E7%BB%99%E5%AE%A2%E6%88%B7%E7%AB%AF%E3%80%82/">Fiddler再把响应转发给客户端。</a>(2)</li><li><a href="https://www.cnblogs.com/tugenhua0707/tag/%E5%8F%AF%E4%BB%A5%E6%8A%8Ahttp%E5%92%8Chttps%E8%AF%B7%E6%B1%82%E5%8F%91%E9%80%81%E7%BB%99Fiddler/">可以把http和https请求发送给Fiddler</a>(2)</li><li><a href="https://www.cnblogs.com/tugenhua0707/tag/%E6%AF%94%E5%A6%82web%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%8A%E5%85%B6%E4%BB%96%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9A%84%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/">比如web浏览器及其他客户端的应用程序</a>(2)</li><li><a href="https://www.cnblogs.com/tugenhua0707/tag/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B0%86%E8%BF%99%E4%BA%9B%E8%AF%B7%E6%B1%82%E7%9A%84%E5%93%8D%E5%BA%94%E8%BF%94%E5%9B%9E%E7%BB%99Fiddler/">服务器将这些请求的响应返回给Fiddler</a>(2)</li><li><a href="https://www.cnblogs.com/tugenhua0707/tag/%E6%9C%AC%E5%9C%B0%E8%BF%90%E8%A1%8C%E7%9A%84%E7%A8%8B%E5%BA%8F/">本地运行的程序</a>(2)</li><li><a href="https://www.cnblogs.com/tugenhua0707/tag/%E6%AF%94%E5%A6%82babel-loader%E5%8A%A0%E8%BD%BD%E5%99%A8/">比如babel-loader加载器</a>(1)</li><li><a href="https://www.cnblogs.com/tugenhua0707/tag/%E8%AF%A5%E5%8A%A0%E8%BD%BD%E5%99%A8%E8%83%BD%E4%BD%BF%E6%88%91%E4%BB%AC%E4%BD%BF%E7%94%A8ES6%E7%9A%84%E8%AF%AD%E6%B3%95%E6%9D%A5%E7%BC%96%E5%86%99%E4%BB%A3%E7%A0%81%E3%80%82%203.%E5%8F%AF%E4%BB%A5%E9%80%9A%E8%BF%87%E9%85%8D%E7%BD%AE%E6%89%93%E5%8C%85%E6%88%90%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6/">该加载器能使我们使用ES6的语法来编写代码。 3.可以通过配置打包成多个文件</a>(1)</li><li><a href="https://www.cnblogs.com/tugenhua0707/tag/%E5%85%B3%E4%BA%8Ejavascript%E4%B8%AD%E5%AF%B9%E6%B5%AE%E7%82%B9%E5%8A%A0/">关于javascript中对浮点加</a>(1)</li><li><a href="https://www.cnblogs.com/tugenhua0707/tag/">更多</a></li>
+        </ul>
+    </div><div id="side-categories">
+        <h2>随笔分类</h2>
+        <ul class="folder">
+                <li>
+                    
+                    <a href="https://www.cnblogs.com/tugenhua0707/category/536191.html">CSS(9)</a>
+                </li>
+                <li>
+                    
+                    <a href="https://www.cnblogs.com/tugenhua0707/category/626225.html">CSS3(13)</a>
+                </li>
+                <li>
+                    
+                    <a href="https://www.cnblogs.com/tugenhua0707/category/626226.html">Ecmascript 6(3)</a>
+                </li>
+                <li>
+                    
+                    <a href="https://www.cnblogs.com/tugenhua0707/category/729585.html">ES6(7)</a>
+                </li>
+                <li>
+                    
+                    <a href="https://www.cnblogs.com/tugenhua0707/category/536190.html">HTML(1)</a>
+                </li>
+                <li>
+                    
+                    <a href="https://www.cnblogs.com/tugenhua0707/category/562154.html">HTML5(21)</a>
+                </li>
+                <li>
+                    
+                    <a href="https://www.cnblogs.com/tugenhua0707/category/536189.html">javascript(106)</a>
+                </li>
+                <li>
+                    
+                    <a href="https://www.cnblogs.com/tugenhua0707/category/713634.html">javascript设计模式的理解(4)</a>
+                </li>
+                <li>
+                    
+                    <a href="https://www.cnblogs.com/tugenhua0707/category/664046.html">javascript数据结构与算法(9)</a>
+                </li>
+                <li>
+                    
+                    <a href="https://www.cnblogs.com/tugenhua0707/category/765929.html">javascript正则表达式(1)</a>
+                </li>
+                <li>
+                    
+                    <a href="https://www.cnblogs.com/tugenhua0707/category/1240772.html">Mongodb(9)</a>
+                </li>
+                <li>
+                    
+                    <a href="https://www.cnblogs.com/tugenhua0707/category/1205593.html">nginx相关的(1)</a>
+                </li>
+                <li>
+                    
+                    <a href="https://www.cnblogs.com/tugenhua0707/category/626222.html">nodeJS(13)</a>
+                </li>
+                <li>
+                    
+                    <a href="https://www.cnblogs.com/tugenhua0707/category/725509.html">ReactJS(3)</a>
+                </li>
+                <li>
+                    
+                    <a href="https://www.cnblogs.com/tugenhua0707/category/626221.html">requireJS(2)</a>
+                </li>
+                <li>
+                    
+                    <a href="https://www.cnblogs.com/tugenhua0707/category/1067259.html">vue(17)</a>
+                </li>
+                <li>
+                    
+                    <a href="https://www.cnblogs.com/tugenhua0707/category/1281878.html">webpack(9)</a>
+                </li>
+                <li>
+                    
+                    <a href="https://www.cnblogs.com/tugenhua0707/category/1171085.html">websocket(7)</a>
+                </li>
+                <li>
+                    
+                    <a href="https://www.cnblogs.com/tugenhua0707/category/1160162.html">前端测试框架(2)</a>
+                </li>
+                <li>
+                    
+                    <a href="https://www.cnblogs.com/tugenhua0707/category/544573.html">前端项目工具(29)</a>
+                </li>
+        </ul>
+    </div><div id="side-top-posts-custom">
+    <h2>推荐排行榜</h2>
+    <div id="TopDiggPostsBlock"><ul><li><a href="https://www.cnblogs.com/tugenhua0707/p/4050072.html">1. Git使用教程(154)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/3969558.html">2. SVN使用教程总结(59)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/4623317.html">3. Fiddler调式使用知多少(一)深入研究(53)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/4501843.html">4. Javascript事件总结(28)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/4637771.html">5. Fiddler实战深入研究(二)(25)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/4793265.html">6. 30分钟手把手教你学webpack实战(25)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/5198407.html">7. Javascript设计模式详解(19)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/5037811.html">8. 深入浅出的javascript的正则表达式学习教程(17)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/3485384.html">9. CSS2.0实现面包屑(15)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/4361051.html">10. javascript数据结构与算法-- 二叉树(14)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/5180841.html">11. H5移动端知识点总结(13)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/5385261.html">12. css3动画由浅入深总结(12)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/4306760.html">13. css3动画功能介绍(12)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/4687947.html">14. Javascript中理解发布--订阅模式(11)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/3489863.html">15. JS 仿腾讯发表微博的效果(11)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/3776808.html">16. JS日期格式化转换方法(11)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/4147569.html">17. 响应性web设计实战总结(11)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/3442541.html">18. JS五星级评分效果(类似与淘宝打分效果)(10)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/4067220.html">19. requireJS(版本是2.1.15)学习教程(一)(10)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/5576262.html">20. webpack进阶构建项目(一)(10)</a></li></ul></div>
+</div><div id="side-top-posts">
+    <h2>阅读排行榜</h2>
+    <div id="TopViewPostsBlock"><ul><li><a href="https://www.cnblogs.com/tugenhua0707/p/3776808.html">1. JS日期格式化转换方法(236410)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/5260411.html">2. 理解CSS3中的background－size(对响应性图片等比例缩放)(79457)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/4793265.html">3. 30分钟手把手教你学webpack实战(65754)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/5198407.html">4. Javascript设计模式详解(61890)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/4050072.html">5. Git使用教程(53308)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/4605593.html">6. javascript和HTML5上传图片之前实现预览效果(36781)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/7528621.html">7. 理解Vue中的Render渲染函数(35491)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/5037811.html">8. 深入浅出的javascript的正则表达式学习教程(29839)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/5576262.html">9. webpack进阶构建项目(一)(28130)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/4666076.html">10. Javascript 将图片的绝对路径转换为base64编码(22372)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/4456300.html">11. nodeJS-使用buffer类处理二进制数据(19804)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/4623317.html">12. Fiddler调式使用知多少(一)深入研究(19686)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/5068449.html">13. 深入理解Javascript面向对象编程(17638)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/8052051.html">14. webpack+vue-cil 中proxyTable配置接口地址代理(17484)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/4508986.html">15. Javascript中的Form表单知识点总结(16331)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/7745735.html">16. 理解vue中的scope的使用(14000)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/3454942.html">17. css实现固定高度及未知高度文字垂直居中的完美解决方案(13582)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/3568134.html">18. JS兼容各个浏览器的本地图片上传即时预览效果(13507)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/4637771.html">19. Fiddler实战深入研究(二)(13482)</a></li><li><a href="https://www.cnblogs.com/tugenhua0707/p/5180841.html">20. H5移动端知识点总结(13245)</a></li></ul></div>
+</div>    
+    
+
+    
+
+    
+    
+
+
+        
+<div id="side-link-561112">
+            <h2>HTML5 History</h2>
+            <ul class="chain">
+            </ul>
+        </div></div>
+            
+                <div id="sideContainer"></div>
+                <script type="text/javascript">
+                    $.ajax({
+                        url: '/' + currentBlogApp + '/mvc/blog/Minyx2_Lite_SideColumn.aspx',
+                        data: '{}',
+                        type: 'post',
+                        dataType: 'text',
+                        contentType: 'application/json; charset=utf-8',
+                        success: function (data) {
+                            if (data) {
+                                $("#sideContainer").html(data);
+                                loadBlogDefaultCalendar();
+                                loadBlogSideBlocks();
+                                var m = window.__blog.sideContainerRendered;
+                                if (m) { m(__$("sideContainer")); }
+                                window.__blog.sidebar.__layout();
+                            }
+                        }
+                    });
+
+                </script>
+            
+        </div>
+
+        <script type="text/javascript">
+            var m = window.__blog.sidebarRendered;
+            if (m) { m(__$("sidebar")); }
+        </script>
+
+        <div id="footer">
+            
+<p id="logoFoot">
+    <a href="http://www.spiga.com.mx/" title="Agencia Interactiva Spiga">www.spiga.com.mx</a>
+</p>
+<div class="footText">
+<p>
+Copyright ©2018 龙恩0707
+</p>
+<p>
+<a href="http://www.cnblogs.com/">博客园</a>
+</p>
+</div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var m = window.__blog.wrapperRendered;
+        if (m) { m(__$("wrapper")); }
+    </script>
+
+</div>
+<script type="text/javascript">
+    var m = window.__blog.containerRendered;
+    if (m) { m(__$("container")); }
+</script>
+
+
+<div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: MathJax_Size1, monospace;"></div></div></body></html>
